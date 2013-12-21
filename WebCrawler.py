@@ -17,7 +17,7 @@ for link in links:
     
 regx = '[A-Z]{3}[0-9]{3}(H|Y)1'
 
-page = requests.get(base_url + departments[3])
+page = requests.get(base_url + departments[0])
 s = BeautifulSoup(page.text, 'html5lib')
 
 
@@ -34,8 +34,6 @@ for row in classes:
         name = col[2].string
         curr = Class(code, sem, name)
         class_list.append(curr)
-    
-
     
     if (col[3].string[0] == "L"):
         code = col[3].string
@@ -62,7 +60,10 @@ for row in classes:
                             s += char
                     loc = s        
         struct = col[7].string
-        class_list[-1].addLec(LectureSection(code, time, loc, struct))
+        if (code == ''):
+            lec.addTime(time, loc)
+        lec = LectureSection(code, time, loc, struct)
+        class_list[-1].addLec(lec)
     else:
         code = col[3].string
         time = col[5].string
