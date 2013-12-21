@@ -1,5 +1,5 @@
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
-         'F' : "Friday'}
+         'F' : 'Friday'}
 
 
 class Class:
@@ -19,7 +19,15 @@ class Class:
         this.lectures.append(lec)
     
     def addTut(this, tut):
-        this.tutorials.append(tut)     
+        this.tutorials.append(tut)
+    
+    def verbose(this):
+        s = str(this)
+        for l in this.lectures:
+            s += "\n\t" + str(l)
+        for t in this.tutorials:
+            s += "\n\t" + str(t)
+        return s
         
 class LectureSection:
     
@@ -30,6 +38,11 @@ class LectureSection:
         this.time = time[1:]
         this.loc = loc
         this.instruct = instruct
+
+    def __str__(this):
+        
+        return (this.code + " " + this.day + " " + this.time + " " +
+                this.loc + " " + this.instruct)
     
 class TutorialSection:
     
@@ -38,4 +51,8 @@ class TutorialSection:
         this.code = code
         this.day = _days[time[0]]
         this.time = time[1:]
-        this.loc = loc        
+        this.loc = loc 
+        
+    def __str__(this):
+        
+        return this.code + " " + this.day + " " + this.time + " " + this.loc

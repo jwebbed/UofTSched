@@ -17,7 +17,7 @@ for link in links:
     
 regx = '[A-Z]{3}[0-9]{3}(H|Y)1'
 
-page = requests.get(base_url + departments[0])
+page = requests.get(base_url + departments[3])
 s = BeautifulSoup(page.text, 'html5lib')
 
 
@@ -26,7 +26,7 @@ classes = s.find_all('tr')[3:]
 class_list = []
 for row in classes:
     col = row.find_all('td')
-    if (len(col) < 8):
+    if (len(col) < 8): #Ignores canceled classes
         continue
     if (re.match(regx, col[0].string)):
         code = col[0].string
@@ -37,14 +37,58 @@ for row in classes:
     
 
     
-    if (col[3].string[0] == L):
+    if (col[3].string[0] == "L"):
         code = col[3].string
         time = col[5].string
+        if (time == None):
+            x = col[5].strong
+            s = ""
+            x = str(x)[8:]
+            for char in x:
+                if (char == "<"):
+                    break
+                else:
+                    s += char
+            time = s
         loc = col[6].string
+        if (loc == None):
+                    x = col[5].strong
+                    s = ""
+                    x = str(x)[8:]
+                    for char in x:
+                        if (char == "<"):
+                            break
+                        else:
+                            s += char
+                    loc = s        
         struct = col[7].string
         class_list[-1].addLec(LectureSection(code, time, loc, struct))
     else:
         code = col[3].string
         time = col[5].string
+        if (time == None):
+                    x = col[5].strong
+                    s = ""
+                    x = str(x)[8:]
+                    for char in x:
+                        if (char == "<"):
+                            break
+                        else:
+                            s += char
+                    time = s        
         loc = col[6].string
-        class_list[-1].addTut(TutorialSection(code, time, loc))               
+        if (loc == None):
+                            x = col[5].strong
+                            s = ""
+                            x = str(x)[8:]
+                            for char in x:
+                                if (char == "<"):
+                                    break
+                                else:
+                                    s += char
+                            loc = s         
+        class_list[-1].addTut(TutorialSection(code, time, loc)) 
+
+if __name__ == "__main__":
+    for i in class_list:
+        print(i.verbose())
