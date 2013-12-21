@@ -35,7 +35,7 @@ for row in classes:
         curr = Class(code, sem, name)
         class_list.append(curr)
     
-    if (col[3].string[0] == "L"):
+    if (col[3].string[0] != "T"):
         code = col[3].string
         time = col[5].string
         if (time == None):
@@ -60,10 +60,11 @@ for row in classes:
                             s += char
                     loc = s        
         struct = col[7].string
-        if (code == ''):
+        if (not re.match("L[0-9]{4}", code)):
             lec.addTime(time, loc)
-        lec = LectureSection(code, time, loc, struct)
-        class_list[-1].addLec(lec)
+        else:
+            lec = LectureSection(code, time, loc, struct)
+            class_list[-1].addLec(lec)
     else:
         code = col[3].string
         time = col[5].string

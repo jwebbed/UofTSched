@@ -64,7 +64,7 @@ class LectureSection:
     
     def addTime(this, time, loc):
         if (time == "TBA"):
-                    return
+            return
                 
         l = []
         s = ''
@@ -74,8 +74,8 @@ class LectureSection:
             else:
                 s += char
                 
-            for t in l:
-                this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))        
+        for t in l:
+            this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))        
         
 
 class TutorialSection:
