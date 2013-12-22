@@ -17,114 +17,115 @@ def main():
         
     
     
-    page = requests.get(base_url + departments[6])
-    s = BeautifulSoup(page.text, 'html5lib')
     
-    
-    classes = s.find_all('tr')[3:]
     
     class_list = []
-    for row in classes:
-        col = row.find_all('td')
-        if (len(col) < 8): #Ignores canceled classes
-            continue
-        if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
-            code = col[0].string
-            sem = col[1].string
-            name = str(col[2].string)
-            if (not re.match("[a-zA-Z\s]*", name)):
-                name = _extractBroken(name)     
-            curr = Class(code, sem, name)
-            class_list.append(curr)
-        
-        if (re.match('L[0-9]{4}', str(col[3].string))):
-            code = str(col[3].string)        
+    for dpt in departments:
+        page = requests.get(base_url + departments[9])
+        s = BeautifulSoup(page.text, 'html5lib')     
+        classes = s.find_all('tr')[3:]        
+    
+        for row in classes:
+            col = row.find_all('td')
+            if (len(col) < 8): #Ignores canceled classes
+                continue
+            if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
+                code = col[0].string
+                sem = col[1].string
+                name = str(col[2].string)
+                if (not re.match("[a-zA-Z\s]*", name)):
+                    name = _extractBroken(name)     
+                curr = Class(code, sem, name)
+                class_list.append(curr)
             
-            if (col[5].string != None):
-                time = str(col[5].string)
-            else:
-                x = str(col[5].strong)
-                time = _extractBrokenTime(x)
+            if (re.match('L[0-9]{4}', str(col[3].string))):
+                code = str(col[3].string)        
                 
-            if (col[6].string != None):
-                loc = str(col[6].string)
-            else:
-                x = str(col[6].strong)
-                if (x != "None"):
-                    loc =_extractBrokenLoc(str(col[6]))
+                if (col[5].string != None):
+                    time = str(col[5].string)
                 else:
-                    x = str(col[6].font)
-                    loc = _multipleRooms(x)
+                    x = str(col[5].strong)
+                    time = _extractBrokenTime(x)
                     
-                
-            instruct = str(col[7].string)
-            sec = LectureSection(code, instruct)
-            for slot in _generateTimeSlot(time, loc):
-                sec.addTime(slot)
-            class_list[-1].addLec(sec)
-        elif (re.match('P[0-9]{4}', str(col[3].string))):
-            code = str(col[3].string)        
-                            
-            if (col[5].string != None):
-                time = str(col[5].string)
-            else:
-                x = str(col[5])
-                time = _extractBrokenTime(x)
-                                
-            if (col[6].string != None):
-                loc = str(col[6].string)
-            else:
-                x = str(col[6])
-                if (x != "None"):
-                    loc =_extractBrokenLoc(x)
+                if (col[6].string != None):
+                    loc = str(col[6].string)
                 else:
-                    x = str(col[6].font)
-                    loc = _multipleRooms(x)
+                    x = str(col[6].strong)
+                    if (x != "None"):
+                        loc =_extractBrokenLoc(str(col[6]))
+                    else:
+                        x = str(col[6].font)
+                        loc = _multipleRooms(x)
+                        
+                    
+                instruct = str(col[7].string)
+                sec = LectureSection(code, instruct)
+                for slot in _generateTimeSlot(time, loc):
+                    sec.addTime(slot)
+                class_list[-1].addLec(sec)
+            elif (re.match('P[0-9]{4}', str(col[3].string))):
+                code = str(col[3].string)        
+                                
+                if (col[5].string != None):
+                    time = str(col[5].string)
+                else:
+                    x = str(col[5])
+                    time = _extractBrokenTime(x)
                                     
-                                
-            instruct = str(col[7].string)
-            sec = PracticalSection(code, instruct)
-            for slot in _generateTimeSlot(time, loc):
-                sec.addTime(slot)
-            class_list[-1].addLec(sec)                
-        elif (re.match('T[0-9]{4}', str(col[3].string))):
-            code = str(col[3].string)
-            
-            if (col[5].string != None):
-                time = str(col[5].string)
-            else:
-                x = str(col[5])
-                time = _extractBrokenTime(x)
-                
-            if (col[6].string != None):
-                loc = str(col[6].string)
-            else:
-                x = str(col[6])
-                loc = _extractBrokenLoc(x)
-                
-            class_list[-1].addTut(
-                TutorialSection(code, _generateTimeSlot(time, loc)[0]))
-        else:
-            if (col[5].string != None):
-                time = str(col[5].string)
-            else:
-                x = str(col[5])
-                time = _extractBrokenTime(x)
-                
-            if (col[6].string != None):
-                loc = str(col[6].string)
-            else:
-                x = str(col[6].strong)
-                if (x != "None"):
-                    loc =_extractBrokenLoc(str(col[6]))
+                if (col[6].string != None):
+                    loc = str(col[6].string)
                 else:
-                    x = str(col[6].font)
-                    loc = _multipleRooms(x)
-                    
+                    x = str(col[6])
+                    if (x != "None"):
+                        loc =_extractBrokenLoc(x)
+                    else:
+                        x = str(col[6].font)
+                        loc = _multipleRooms(x)
+                                        
+                                    
+                instruct = str(col[7].string)
+                sec = PracticalSection(code, instruct)
+                for slot in _generateTimeSlot(time, loc):
+                    sec.addTime(slot)
+                class_list[-1].addLec(sec)                
+            elif (re.match('T[0-9]{4}', str(col[3].string))):
+                code = str(col[3].string)
                 
-            instruct = str(col[7].string)
-            for slot in _generateTimeSlot(time, loc):
-                sec.addTime(slot)          
+                if (col[5].string != None):
+                    time = str(col[5].string)
+                else:
+                    x = str(col[5])
+                    time = _extractBrokenTime(x)
+                    
+                if (col[6].string != None):
+                    loc = str(col[6].string)
+                else:
+                    x = str(col[6])
+                    loc = _extractBrokenLoc(x)
+                    
+                class_list[-1].addTut(
+                    TutorialSection(code, _generateTimeSlot(time, loc)[0]))
+            else:
+                if (col[5].string != None):
+                    time = str(col[5].string)
+                else:
+                    x = str(col[5])
+                    time = _extractBrokenTime(x)
+                    
+                if (col[6].string != None):
+                    loc = str(col[6].string)
+                else:
+                    x = str(col[6].strong)
+                    if (x != "None"):
+                        loc =_extractBrokenLoc(str(col[6]))
+                    else:
+                        x = str(col[6].font)
+                        loc = _multipleRooms(x)
+                        
+                    
+                instruct = str(col[7].string)
+                for slot in _generateTimeSlot(time, loc):
+                    sec.addTime(slot)          
             
     return class_list
 
