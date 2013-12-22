@@ -267,7 +267,12 @@ def _multipleRooms(string):
     
 if __name__ == "__main__":
     x = WebCrawler()
+    s = ''
     for i in x:
-        print(i.verbose())
+        s += i.verbose() + '\n'
+    f = open('downloaded_data.txt', 'w')
+    f.write(s)
+    f.close()
+    
     
     
