@@ -3,78 +3,84 @@ from bs4 import BeautifulSoup
 import requests
 import re
 
-#Constants
-base_url = 'http://www.artsandscience.utoronto.ca/ofr/timetable/winter/'
-top_level = 'sponsors.htm'
-course_code_regex = '[A-Z]{3}[0-9]{3}(H|Y)1'
-lecture_code_regex = 'L[0-9]{4}'
-tutorial_code_regex = 'T[0-9]{4}'
-
-r = requests.get(base_url + top_level)
-soup = BeautifulSoup(r.text, 'html5lib')
-
-links = soup.find_all('li')
-departments = []
-for link in links:
-    departments.append(link.a.get("href"))
+def main():
+    base_url = 'http://www.artsandscience.utoronto.ca/ofr/timetable/winter/'
+    top_level = 'sponsors.htm'
     
-
-
-page = requests.get(base_url + departments[0])
-s = BeautifulSoup(page.text, 'html5lib')
-
-
-classes = s.find_all('tr')[3:]
-
-class_list = []
-for row in classes:
-    col = row.find_all('td')
-    if (len(col) < 8): #Ignores canceled classes
-        continue
-    if (re.match(course_code_regex, col[0].string)):
-        code = col[0].string
-        sem = col[1].string
-        name = str(col[2].string)
-        if (not re.match("[a-zA-Z\s]*", name)):
-            name = _extractBroken(name)     
-        curr = Class(code, sem, name)
-        class_list.append(curr)
+    r = requests.get(base_url + top_level)
+    soup = BeautifulSoup(r.text, 'html5lib')
     
-    if (re.match(lecture_code_regex, col[3].string[0])):
-        code = str(col[3].string)        
+    links = soup.find_all('li')
+    departments = []
+    for link in links:
+        departments.append(link.a.get("href"))
         
+    
+    
+    page = requests.get(base_url + departments[0])
+    s = BeautifulSoup(page.text, 'html5lib')
+    
+    
+    classes = s.find_all('tr')[3:]
+    
+    class_list = []
+    for row in classes:
+        col = row.find_all('td')
+        if (len(col) < 8): #Ignores canceled classes
+            continue
+        if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', col[0].string)):
+            code = col[0].string
+            sem = col[1].string
+            name = str(col[2].string)
+            if (not re.match("[a-zA-Z\s]*", name)):
+                name = _extractBroken(name)     
+            curr = Class(code, sem, name)
+            class_list.append(curr)
         
-        if (col[5].string != None):
-            time = str(col[5].string)
-        else:
-            time = _extractBroken(str(col[5].string.strong))
+        if (re.match('L[0-9]{4}', str(col[3].string))):
+            code = str(col[3].string)        
             
-        if (col[6].string != None):
-            loc = str(col[5].string)
-        else:
-            loc = _extractBroken(str(col[6].string.strong))
+            if (col[5].string != None):
+                time = str(col[5].string)
+            else:
+                x = str(col[5].strong)
+                time = _extractBroken(x)
+                
+            if (col[6].string != None):
+                loc = str(col[6].string)
+            else:
+                x = str(col[6].strong)
+                loc = _extractBroken(x)
+                
+            instruct = str(col[7].string)
+            if (not re.match("L[0-9]{4}", code)):
+                for slot in _generateTimeSlot(time, loc):
+                    lec.addTime()
+            else:
+                lec = LectureSection(code, instruct)
+                for slot in _generateTimeSlot(time, loc):
+                    lec.addTime(slot)
+                class_list[-1].addLec(lec)
+                
+        elif (re.match('T[0-9]{4}', str(col[3].string))):
+            code = str(col[3].string)
             
-        instruct = str(col[7].string)
-        if (not re.match("L[0-9]{4}", code)):
-            lec.addTime(time, loc)
-        else:
-            lec = LectureSection(code, time, loc, instruct)
-            class_list[-1].addLec(lec)
-                       
-    else:
-        code = str(col[3].string)
-        
-        if (col[5].string != None):
-            time = str(col[5].string)
-        else:
-            time = _extractBroken(str(col[5].string.strong))
+            if (col[5].string != None):
+                time = str(col[5].string)
+            else:
+                x = str(col[5].strong)
+                time = _extractBroken(x)
+                
+            if (col[6].string != None):
+                loc = str(col[6].string)
+            else:
+                x = str(col[6].strong)
+                loc = _extractBroken(x)
+                
+            class_list[-1].addTut(
+                TutorialSection(code, _generateTimeSlot(time, loc)[0]))
             
-        if (col[6].string != None):
-            time = str(col[5].string)
-        else:
-            time = _extractBroken(str(col[6].string.strong))
-            
-        class_list[-1].addTut(TutorialSection(code, time, loc)) 
+    return class_list
 
 
 
@@ -89,12 +95,14 @@ def _generateTimeSlot(time, loc):
             else:
                 s += char
         
-        if (re.match("9-[10|11|12]", s)):
+        if (re.match("9-(10|11|12)", s)):
             start, end = int(s[0]), int(s[2:])
-        elif (re.match("[10|11]-[11|12]", s)):
+        elif (re.match("(10|11)-(11|12)", s)):
             start, end = int(s[:2]), int(s[2:])
-        elif (re.match("[10|11|12]-[1-9]", s)):
+        elif (re.match("(10|11|12)-[1-9]", s)):
             start, end = int(s[:2]), (int(s[-1]) + 12)
+        elif (re.match("[1-9]-[1-9]", s)):
+            start, end = (int(s[0]) + 12), (int(s[-1]) + 12)            
         elif (re.match("[1-9][0-9]{0,1} (p)", s)):
             start = int(s[:-3]) + 12
             end = start + 1
@@ -103,24 +111,23 @@ def _generateTimeSlot(time, loc):
             end = start + 1
         elif (re.match("[1-9]", s)):
             start = int(s) + 12
-            end = s + 1
+            end = start + 1
         else:
             raise Exception("Not regex matched the time format")
               
-        for t in l:
-            TimeSlot(t, loc, start, end)
-        
-        return l
+        return [TimeSlot(t, loc, start, end) for t in l]
+            
     else:
-        return TBA
+        return [TBA]
 
 def _extractBroken(string):
     new_string = ""
     i = 0
     check = False
-    while (true):
+    while (True):
         if (string[i] == ">"):
             check = True
+            i += 1
             continue
         elif (check == True):
             if (string[i] == "<"):
@@ -135,5 +142,6 @@ def _extractBroken(string):
 
 
 if __name__ == "__main__":
-    for i in class_list:
+    x = main()
+    for i in x:
         print(i.verbose())

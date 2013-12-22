@@ -3,8 +3,6 @@ import re
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
 
-TBA = TimeSlot(None)
-
 
 class Class:
     
@@ -35,7 +33,7 @@ class Class:
         
 class LectureSection:
     
-    def __init__(this, code, loc, instruct):
+    def __init__(this, code, instruct):
         
         this.code = code
         this.instruct = instruct
@@ -50,40 +48,21 @@ class LectureSection:
         
         return s
     
-    def addTime(this):
-        this.time.append(time)       
+    def addTime(this, timeslot):
+        this.time.append(timeslot)       
         
 
 class TutorialSection:
     
-    def __init__(this, code, time, loc):
+    def __init__(this, code, timeslot):
         
         this.code = code
-        this.time = []
+        this.timeslot = timeslot
         
-        if (time == "TBA"):
-            return
-        
-        l = []
-        s = ''
-        for char in time:
-            if (re.match("[A-Z]", char)):
-                l.append(char)
-            elif(re.match("[0-9]", char)):
-                s += char
-        
-        if (len(s) == 1):
-            s+= str(int(s) +1)        
-        for t in l:
-            this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))
         
     def __str__(this):
-        s = this.code
-        if (this.time != []):
-            for i in this.time:
-                s+= "\n\t\t" + str(i)
-        
-        return s
+
+        return "BLAH"
 
 class TimeSlot:
     
@@ -106,3 +85,6 @@ class TimeSlot:
         else:
             return (_days[this.day] + ' ' + this.loc + ' ' + str(this.start) 
                     + '-' + str(this.end))
+
+        
+TBA = TimeSlot(None)
