@@ -49,7 +49,7 @@ def WebCrawler():
                     if (col[3].string != None):
                         code = str(col[3].string) 
                     else:
-                        code = _extractBrokenCode(str(col[3])
+                        code = _extractBrokenCode(str(col[3]))
                                                   
                     if (col[5].string != None):
                         time = str(col[5].string)
