@@ -4,8 +4,9 @@ import requests
 import re
 import math
 import traceback
+import sys
 
-def main():
+def WebCrawler():
     base_url = 'http://www.artsandscience.utoronto.ca/ofr/timetable/winter/'
     top_level = 'sponsors.htm'
     
@@ -16,10 +17,7 @@ def main():
     departments = []
     for link in links:
         departments.append(link.a.get("href"))
-        
-    
-    
-    
+ 
     try:
         class_list = []
         for dpt in departments:
@@ -32,22 +30,30 @@ def main():
                 if (len(col) < 8): #Ignores canceled classes
                     continue
                 if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
-                    code = col[0].string
-                    sem = col[1].string
+                    code = str(col[0].string)
+                    sem = str(col[1].string)
+                    if (sem == 'None'):
+                        if (re.match('"S', str(col[1]))):
+                            sem = 'S'
+                        elif (re.match('"F', str(col[1]))):
+                            sem = 'F'
+                        elif (re.match('"Y', str(col[1]))):
+                            sem = 'Y'
                     name = str(col[2].string)
                     if (not re.match("[a-zA-Z\s]*", name)):
                         name = _extractBroken(name)     
                     curr = Class(code, sem, name)
                     class_list.append(curr)
+                print(str(col[3]))
                 
-                if (re.match('L[0-9]{4}', str(col[3].string))):
+                if (re.search('L[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)        
                     
                     if (col[5].string != None):
                         time = str(col[5].string)
                     else:
                         x = str(col[5].strong)
-                        time = _extractBrokenTime(x)
+                        time = _extractBrokenTime(str(col[5]))
                         
                     if (col[6].string != None):
                         loc = str(col[6].string)
@@ -65,7 +71,7 @@ def main():
                     for slot in _generateTimeSlot(time, loc):
                         sec.addTime(slot)
                     class_list[-1].addLec(sec)
-                elif (re.match('P[0-9]{4}', str(col[3].string))):
+                elif (re.search('P[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)        
                                     
                     if (col[5].string != None):
@@ -90,7 +96,7 @@ def main():
                     for slot in _generateTimeSlot(time, loc):
                         sec.addTime(slot)
                     class_list[-1].addLec(sec)                
-                elif (re.match('T[0-9]{4}', str(col[3].string))):
+                elif (re.search('T[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)
                     
                     if (col[5].string != None):
@@ -130,7 +136,8 @@ def main():
                         sec.addTime(slot)   
     except:
         print(class_list[-1].code)
-        traceback.print_stack()
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        traceback.print_exception(exc_type, exc_value, exc_traceback)
             
     return class_list
    
@@ -140,10 +147,11 @@ def main():
 
 def _generateTimeSlot(time, loc):
     if (time != "TBA"):
-        l , s = [], ''
+        l, s, start, end = [], '', None, None
+        
 
         for char in time:
-            if (re.match("[A-Z]", char)):
+            if (re.match("(M|T|W|R|F)", char)):
                 l.append(char)
             else:
                 s += char
@@ -168,46 +176,44 @@ def _generateTimeSlot(time, loc):
                     start += 12
                 start *= 4
                 end = start + 4
-            elif(re.match("-", s)):
-                if (re.match(":", s)):
-                    match = re.search("[0-9]{1,2}:[0-9]{2}:", s)
-                    
-                    t = match.group(0)
-                    parts = t.split(':')
-                    start = int(parts[0])
-                    if (start < 9):
-                        start += 12
-                    start *= 4
-                    start += math.round(int(parts[1])/15)
-                    
-                    t = match.group(1)
-                    parts = t.split(':')
-                    end = int(parts[0])
-                    if (end < 9):
-                        end += 12
-                    end *= 4
-                    end += math.round(int(parts[1])/15)                  
+        elif(re.match("-", s)):
+            if (re.match(":", s)):
+                match = re.search("[0-9]{1,2}:[0-9]{2}:", s)
+                
+                t = match.group(0)
+                parts = t.split(':')
+                start = int(parts[0])
+                if (start < 9):
+                    start += 12
+                start *= 4
+                start += math.round(int(parts[1])/15)
+                
+                t = match.group(1)
+                parts = t.split(':')
+                end = int(parts[0])
+                if (end < 9):
+                    end += 12
+                end *= 4
+                end += math.round(int(parts[1])/15)                  
             elif (re.match("[0-9]{1,2}", s)):
                 match = re.search("[0-9]{1,2}", s)
-                
+            
                 t = match.group(0)
                 start = int(t)
                 if (start < 9):
                     start += 12
                 start *= 4
-                
-                t = match.group(1)
-                end= int(t)
-                if (end < 9):
-                    end += 12
-                end *= 4
-        
-     
-        if (re.match("\(p\)", s)):
-            start += 12
-            end += 12
             
-        return [TimeSlot(t, loc, start, end) for t in l]
+            t = match.group(1)
+            end= int(t)
+            if (end < 9):
+                end += 12
+            end *= 4
+        
+        if (start and end):
+            return [TimeSlot(t, loc, start, end) for t in l]
+        else:
+            return [TBA]
             
     else:
         return [TBA]
@@ -221,9 +227,10 @@ def _extractBrokenLoc(string):
         return "TBA"
 
 def _extractBrokenTime(string):
-    match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]* ?(\(p|A\))*", 
+    match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]*", 
                       string)
     return match.group(0)
+    
     
 
 def _multipleRooms(string):
@@ -253,6 +260,8 @@ def _multipleRooms(string):
     return new_string 
     
 if __name__ == "__main__":
-    x = main()
+    x = WebCrawler()
+    for i in x:
+        print(i.verbose())
     
     
