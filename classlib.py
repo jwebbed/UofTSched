@@ -3,6 +3,8 @@ import re
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
 
+TBA = TimeSlot(None)
+
 
 class Class:
     
@@ -85,12 +87,21 @@ class TutorialSection:
 
 class TimeSlot:
     
-    def __init__(this, day, loc, start, end):
-        this.day = day
-        this.loc = loc
-        this.start = start
-        this.end = end
+    def __init__(this, *args):
+        ''' Input should be day, location, start time and end time in this 
+        order, otherwise only input should be None indicating TBA'''
+        
+        if (args[0] == None):
+            this.TBA = True           
+        else:
+            this.day = args[0]
+            this.loc = args[1]
+            this.start = args[2]
+            this.end = args[3]
         
     def __str__(this):
-        return (_days[this.day] + ' ' + this.loc + ' ' + str(this.start) + '-' +
-                str(this.end))
+        if (this.TBA):
+            return "TBA"
+        else:
+            return (_days[this.day] + ' ' + this.loc + ' ' + str(this.start) 
+                    + '-' + str(this.end))

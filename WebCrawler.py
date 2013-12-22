@@ -34,17 +34,9 @@ for row in classes:
     if (re.match(course_code_regex, col[0].string)):
         code = col[0].string
         sem = col[1].string
-        name = col[2].string
-        if (name == None):
-            x = col[2].strong
-            s = ""
-            x = str(x)[8:]
-            for char in x:
-                if (char == "<"):
-                    break
-                else:
-                    s += char
-            name = s        
+        name = str(col[2].string)
+        if (not re.match("[a-zA-Z\s]*", name)):
+            name = _extractBroken(name)     
         curr = Class(code, sem, name)
         class_list.append(curr)
     
@@ -112,26 +104,30 @@ def _generateTimeSlot(time, loc):
             else:
                 s += char
         
-    if (re.match("9-[10|11|12]", s)):
-        start, end = int(s[0]), int(s[2:])
-    elif (re.match("[10|11]-[11|12]", s)):
-        start, end = int(s[:2]), int(s[2:])
-    elif (re.match("[10|11|12]-[1-9]", s)):
-        start, end = int(s[:2]), (int(s[-1]) + 12)
-    elif (re.match("[1-9][0-9]{0,1} (p)", s)):
-        start = int(s[:-3]) + 12
-        end = start + 1
-    elif (re.match("[9|10|11|12]", s)):
-        start = int(s)
-        end = start + 1
-    elif (re.match("[1-9]", s)):
-        start = int(s) + 12
-        end = s + 1
-          
-    for t in l:
-        TimeSlot(t, loc, start, end)
-    
-    return l
+        if (re.match("9-[10|11|12]", s)):
+            start, end = int(s[0]), int(s[2:])
+        elif (re.match("[10|11]-[11|12]", s)):
+            start, end = int(s[:2]), int(s[2:])
+        elif (re.match("[10|11|12]-[1-9]", s)):
+            start, end = int(s[:2]), (int(s[-1]) + 12)
+        elif (re.match("[1-9][0-9]{0,1} (p)", s)):
+            start = int(s[:-3]) + 12
+            end = start + 1
+        elif (re.match("[9|10|11|12]", s)):
+            start = int(s)
+            end = start + 1
+        elif (re.match("[1-9]", s)):
+            start = int(s) + 12
+            end = s + 1
+        else:
+            raise Exception("Not regex matched the time format")
+              
+        for t in l:
+            TimeSlot(t, loc, start, end)
+        
+        return l
+    else:
+        return TBA
 
 def _extractBroken(string):
     new_string = ""
@@ -151,6 +147,7 @@ def _extractBroken(string):
             i += 1
         
     return new_string   
+
 
 if __name__ == "__main__":
     for i in class_list:
