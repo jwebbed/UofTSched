@@ -17,7 +17,7 @@ def main():
         
     
     
-    page = requests.get(base_url + departments[0])
+    page = requests.get(base_url + departments[2])
     s = BeautifulSoup(page.text, 'html5lib')
     
     
@@ -58,14 +58,10 @@ def main():
                     
                 
             instruct = str(col[7].string)
-            if (not re.match("L[0-9]{4}", code)):
-                for slot in _generateTimeSlot(time, loc):
-                    lec.addTime()
-            else:
-                lec = LectureSection(code, instruct)
-                for slot in _generateTimeSlot(time, loc):
-                    lec.addTime(slot)
-                class_list[-1].addLec(lec)
+            lec = LectureSection(code, instruct)
+            for slot in _generateTimeSlot(time, loc):
+                lec.addTime(slot)
+            class_list[-1].addLec(lec)
                 
         elif (re.match('T[0-9]{4}', str(col[3].string))):
             code = str(col[3].string)
@@ -84,6 +80,28 @@ def main():
                 
             class_list[-1].addTut(
                 TutorialSection(code, _generateTimeSlot(time, loc)[0]))
+        else:
+            if (col[5].string != None):
+                time = str(col[5].string)
+            else:
+                x = str(col[5].strong)
+                time = _extractBroken(x)
+                
+            if (col[6].string != None):
+                loc = str(col[6].string)
+            else:
+                x = str(col[6].strong)
+                if (x != "None"):
+                    loc =_extractBroken(x)
+                else:
+                    x = str(col[6].font)
+                    loc = _multipleRooms(x)
+                    
+                
+            instruct = str(col[7].string)
+            for slot in _generateTimeSlot(time, loc):
+                lec.addTime(slot)
+            class_list[-1].addLec(lec)            
             
     return class_list
 
@@ -99,8 +117,12 @@ def _generateTimeSlot(time, loc):
                 l.append(char)
             else:
                 s += char
+                
         
-        if (re.match("9-(10|11|12)", s)):
+        if (re.match("[1-9]:[0-9]{2}-[1-9]:[0-9]{2}", s)):
+            start = (int(s[0]) + (int(s[2:4]) / 60)) + 12
+            end = (int(s[5]) + (int(s[7:9]) / 60)) + 12
+        elif (re.match("9-(10|11|12)", s)):
             start, end = int(s[0]), int(s[2:])
         elif (re.match("(10|11)-(11|12)", s)):
             start, end = int(s[:2]), int(s[2:])
@@ -111,15 +133,22 @@ def _generateTimeSlot(time, loc):
         elif (re.match("[1-9][0-9]{0,1} (p)", s)):
             start = int(s[:-3]) + 12
             end = start + 1
-        elif (re.match("[9|10|11|12]", s)):
-            start = int(s)
+        elif (re.match("[10|11|12]", s)):
+            start = int(s[:2])
             end = start + 1
-        elif (re.match("[1-9]", s)):
-            start = int(s) + 12
+        elif (re.match("[1-8]", s)):
+            start = int(s[0]) + 12
             end = start + 1
+        elif (re.match("9", s)):
+            start = int(s[0])
+            end = start + 1            
         else:
-            raise Exception("Not regex matched the time format")
-              
+            raise Exception("No regex matched the time format")
+        
+        if (re.match("\(p\)", s)):
+            start += 12
+            end += 12
+            
         return [TimeSlot(t, loc, start, end) for t in l]
             
     else:
