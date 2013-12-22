@@ -44,11 +44,13 @@ def WebCrawler():
                         name = _extractBroken(name)     
                     curr = Class(code, sem, name)
                     class_list.append(curr)
-                print(str(col[3]))
                 
-                if (re.search('L[0-9]{4}', str(col[3]))):
-                    code = str(col[3].string)        
-                    
+                if (re.search('L[0-9]{4}', str(col[3]))):        
+                    if (col[3].string != None):
+                        code = str(col[3].string) 
+                    else:
+                        code = _extractBrokenCode(str(col[3])
+                                                  
                     if (col[5].string != None):
                         time = str(col[5].string)
                     else:
@@ -229,6 +231,10 @@ def _extractBrokenLoc(string):
 def _extractBrokenTime(string):
     match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]*", 
                       string)
+    return match.group(0)
+
+def _extractBrokenCode(string):
+    match = re.search("(L|T|P)[0-9]{4}", string)
     return match.group(0)
     
     
