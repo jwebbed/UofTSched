@@ -17,7 +17,7 @@ def main():
         
     
     
-    page = requests.get(base_url + departments[2])
+    page = requests.get(base_url + departments[5])
     s = BeautifulSoup(page.text, 'html5lib')
     
     
@@ -58,11 +58,35 @@ def main():
                     
                 
             instruct = str(col[7].string)
-            lec = LectureSection(code, instruct)
+            sec = LectureSection(code, instruct)
             for slot in _generateTimeSlot(time, loc):
-                lec.addTime(slot)
-            class_list[-1].addLec(lec)
-                
+                sec.addTime(slot)
+            class_list[-1].addLec(sec)
+        elif (re.match('P[0-9]{4}', str(col[3].string))):
+            code = str(col[3].string)        
+                            
+            if (col[5].string != None):
+                time = str(col[5].string)
+            else:
+                x = str(col[5].strong)
+                time = _extractBroken(x)
+                                
+            if (col[6].string != None):
+                loc = str(col[6].string)
+            else:
+                x = str(col[6].strong)
+                if (x != "None"):
+                    loc =_extractBroken(x)
+                else:
+                    x = str(col[6].font)
+                    loc = _multipleRooms(x)
+                                    
+                                
+            instruct = str(col[7].string)
+            sec = PracticalSection(code, instruct)
+            for slot in _generateTimeSlot(time, loc):
+                sec.addTime(slot)
+            class_list[-1].addLec(sec)                
         elif (re.match('T[0-9]{4}', str(col[3].string))):
             code = str(col[3].string)
             
@@ -100,8 +124,7 @@ def main():
                 
             instruct = str(col[7].string)
             for slot in _generateTimeSlot(time, loc):
-                lec.addTime(slot)
-            class_list[-1].addLec(lec)            
+                sec.addTime(slot)          
             
     return class_list
 

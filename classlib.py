@@ -30,7 +30,7 @@ class Class:
         for t in this.tutorials:
             s += "\n\t" + str(t)
         return s
-        
+       
 class LectureSection:
     
     def __init__(this, code, instruct):
@@ -49,7 +49,27 @@ class LectureSection:
         return s
     
     def addTime(this, timeslot):
-        this.time.append(timeslot)       
+        this.time.append(timeslot)
+        
+class PracticalSection:
+    
+    def __init__(this, code, instruct):
+        
+        this.code = code
+        this.instruct = instruct
+        this.time = []
+                
+
+    def __str__(this):
+        s = this.code + " " + this.instruct
+        if (this.time != []):
+            for i in this.time:
+                s+= "\n\t\t" + str(i)
+        
+        return s
+    
+    def addTime(this, timeslot):
+        this.time.append(timeslot) 
         
 
 class TutorialSection:
