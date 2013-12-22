@@ -50,7 +50,12 @@ def main():
                 loc = str(col[6].string)
             else:
                 x = str(col[6].strong)
-                loc = _extractBroken(x)
+                if (x != "None"):
+                    loc =_extractBroken(x)
+                else:
+                    x = str(col[6].font)
+                    loc = _multipleRooms(x)
+                    
                 
             instruct = str(col[7].string)
             if (not re.match("L[0-9]{4}", code)):
@@ -121,9 +126,7 @@ def _generateTimeSlot(time, loc):
         return [TBA]
 
 def _extractBroken(string):
-    new_string = ""
-    i = 0
-    check = False
+    new_string, i, check = "", 0, False
     while (True):
         if (string[i] == ">"):
             check = True
@@ -140,7 +143,32 @@ def _extractBroken(string):
         
     return new_string   
 
-
+def _multipleRooms(string):
+    new_string, i, check, n = "", 0, False, 0
+    while (True):
+        if (n < 2):
+            if (string[i] == ">"):
+                check = True
+                i += 1
+                continue
+            elif (check == True):
+                if (string[i] == "<"):
+                    i += 1
+                    n += 1
+                    check = False
+                else:
+                    if (string[i] == '\n'):
+                        i += 1
+                    else:
+                        new_string += string[i]
+                        i += 1
+            else:
+                i += 1
+        else:
+            break
+        
+    return new_string 
+    
 if __name__ == "__main__":
     x = main()
     for i in x:

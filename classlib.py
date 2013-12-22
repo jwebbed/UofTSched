@@ -62,7 +62,7 @@ class TutorialSection:
         
     def __str__(this):
 
-        return "BLAH"
+        return this.code + " " + str(this.timeslot)
 
 class TimeSlot:
     
