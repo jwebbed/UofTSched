@@ -225,8 +225,13 @@ def _extractBrokenLoc(string):
     match = re.search("[A-Z]{2} [A-Z]*[0-9]+", string)
     if (match):
         return match.group(0)
-    else:
-        return "TBA"
+    elif (re.search("GI", string)):
+        return "GI"
+    elif (re.search("[A-Za-z ]*", string)):
+        match = re.search("[A-Za-z ]*", string)
+        return match.group(0)
+    
+        
 
 def _extractBrokenTime(string):
     match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]*", 

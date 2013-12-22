@@ -2366,7 +2366,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
@@ -2868,7 +2868,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
@@ -7167,7 +7167,7 @@ ENG414H1 F Adv Studies Group 1
 		Wednesday VC 304  72-76
 ENG415H1 F Adv Studies Group 1
 	L0101 J. Gang
-		Tuesday TBA 60-64
+		Tuesday  60-64
 ENG415H1 S Adv Studies Group 1
 	L0101 P. Downes
 		Tuesday NF 004  52-56
@@ -7881,7 +7881,7 @@ SLA331H1 S Universal Flowering
 		Thursday CR 103  48-52
 SLA333H1 S Animated Film Eur
 	L0101 Tba
-		Friday TBA 56-60
+		Friday  56-60
 SLA336H1 S Advanced Polish II
 	L0101 Tba
 		Tuesday AH 306  56-60
@@ -8121,7 +8121,7 @@ SLA331H1 S Universal Flowering
 		Thursday CR 103  48-52
 SLA333H1 S Animated Film Eur
 	L0101 Tba
-		Friday TBA 56-60
+		Friday  56-60
 SLA336H1 S Advanced Polish II
 	L0101 Tba
 		Tuesday AH 306  56-60
@@ -9502,7 +9502,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
@@ -15588,7 +15588,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
@@ -16368,7 +16368,7 @@ RSM333H1 S Intro Corp Finance
 	L0501 F. Tolias
 		Wednesday WO 30  52-56
 	L0601 F. Tolias
-		Monday TBA 36-40
+		Monday  36-40
 	L0701 W. Huggins
 		Wednesday WO 25 64-68
 	L5101 W. Huggins
@@ -16941,7 +16941,7 @@ SMC464H1 F Church & Media
 		Thursday CR 107  60-64
 SMC465H1 F McLuhan
 	L0101 Tba
-		Tuesday TBA 52-56
+		Tuesday  52-56
 SMC466H1 F Public Broadcasting
 	L0101 M. McGowan
 		Monday CR 106  40-44
@@ -17141,7 +17141,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
@@ -17490,7 +17490,7 @@ SLA331H1 S Universal Flowering
 		Thursday CR 103  48-52
 SLA333H1 S Animated Film Eur
 	L0101 Tba
-		Friday TBA 56-60
+		Friday  56-60
 SLA336H1 S Advanced Polish II
 	L0101 Tba
 		Tuesday AH 306  56-60
@@ -18381,7 +18381,7 @@ UNI255H1 F History & Sexualities
 		Tuesday SS 2102  72-76
 UNI256H1 S Soc. Sci of Sexuality
 	L0101 K. Nixon
-		Wednesday TBA 60-64
+		Wednesday GI 60-64
 UNI267H1 F Canadian Nationalisms
 	L0101 B. Bryce
 		Monday UC 161  40-44
