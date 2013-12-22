@@ -32,6 +32,16 @@ for row in classes:
         code = col[0].string
         sem = col[1].string
         name = col[2].string
+        if (name == None):
+            x = col[2].strong
+            s = ""
+            x = str(x)[8:]
+            for char in x:
+                if (char == "<"):
+                    break
+                else:
+                    s += char
+            name = s        
         curr = Class(code, sem, name)
         class_list.append(curr)
     
@@ -50,7 +60,7 @@ for row in classes:
             time = s
         loc = col[6].string
         if (loc == None):
-                    x = col[5].strong
+                    x = col[6].strong
                     s = ""
                     x = str(x)[8:]
                     for char in x:
@@ -80,15 +90,15 @@ for row in classes:
                     time = s        
         loc = col[6].string
         if (loc == None):
-                            x = col[5].strong
-                            s = ""
-                            x = str(x)[8:]
-                            for char in x:
-                                if (char == "<"):
-                                    break
-                                else:
-                                    s += char
-                            loc = s         
+            x = col[6].strong
+            s = ""
+            x = str(x)[8:]
+            for char in x:
+                if (char == "<"):
+                    break
+                else:
+                    s += char
+            loc = s         
         class_list[-1].addTut(TutorialSection(code, time, loc)) 
 
 if __name__ == "__main__":

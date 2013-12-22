@@ -8,9 +8,9 @@ class Class:
     
     def __init__(this, code, sem, name):
         
-        this.code = code
-        this.sem = sem
-        this.name = name
+        this.code = str(code)
+        this.sem = str(sem)
+        this.name = str(name)
         this.lectures = []
         this.tutorials = []
         
@@ -50,6 +50,7 @@ class LectureSection:
             else:
                 s += char
         
+        #fix this
         for t in l:
             this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))
                 
@@ -83,13 +84,29 @@ class TutorialSection:
     def __init__(this, code, time, loc):
         
         this.code = code
-        this.day = _days[time[0]]
-        this.time = time[1:]
-        this.loc = loc 
+        this.time = []
+        
+        if (time == "TBA"):
+            return
+        
+        l = []
+        s = ''
+        for char in time:
+            if (re.match("[A-Z]", char)):
+                l.append(char)
+            else:
+                s += char
+        
+        for t in l:
+            this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))
         
     def __str__(this):
+        s = this.code
+        if (this.time != []):
+            for i in this.time:
+                s+= "\n\t\t" + str(i)
         
-        return this.code + " " + this.day + " " + this.time + " " + this.loc
+        return s
 
 class TimeSlot:
     
