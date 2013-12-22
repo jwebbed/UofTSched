@@ -10,9 +10,9 @@ class Class:
     
     def __init__(this, code, sem, name):
         
-        this.code = str(code)
-        this.sem = str(sem)
-        this.name = str(name)
+        this.code = code
+        this.sem = sem
+        this.name = name
         this.lectures = []
         this.tutorials = []
         
@@ -98,6 +98,7 @@ class TimeSlot:
             this.loc = args[1]
             this.start = args[2]
             this.end = args[3]
+            this.TBA = False
         
     def __str__(this):
         if (this.TBA):

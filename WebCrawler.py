@@ -41,54 +41,39 @@ for row in classes:
         class_list.append(curr)
     
     if (re.match(lecture_code_regex, col[3].string[0])):
-        code = col[3].string
-        time = col[5].string
-        if (time == None):
-            x = col[5].strong
+        code = str(col[3].string)        
+        
+        
+        if (col[5].string != None):
+            time = str(col[5].string)
+        else:
+            time = _extractBroken(str(col[5].string.strong))
             
-            time = s
-        loc = col[6].string
-        if (loc == None):
-                    x = col[6].strong
-                    s = ""
-                    x = str(x)[8:]
-                    for char in x:
-                        if (char == "<"):
-                            break
-                        else:
-                            s += char
-                    loc = s        
-        struct = col[7].string
+        if (col[6].string != None):
+            loc = str(col[5].string)
+        else:
+            loc = _extractBroken(str(col[6].string.strong))
+            
+        instruct = str(col[7].string)
         if (not re.match("L[0-9]{4}", code)):
             lec.addTime(time, loc)
         else:
-            lec = LectureSection(code, time, loc, struct)
+            lec = LectureSection(code, time, loc, instruct)
             class_list[-1].addLec(lec)
                        
     else:
-        code = col[3].string
-        time = col[5].string
-        if (time == None):
-                    x = col[5].strong
-                    s = ""
-                    x = str(x)[8:]
-                    for char in x:
-                        if (char == "<"):
-                            break
-                        else:
-                            s += char
-                    time = s        
-        loc = col[6].string
-        if (loc == None):
-            x = col[6].strong
-            s = ""
-            x = str(x)[8:]
-            for char in x:
-                if (char == "<"):
-                    break
-                else:
-                    s += char
-            loc = s         
+        code = str(col[3].string)
+        
+        if (col[5].string != None):
+            time = str(col[5].string)
+        else:
+            time = _extractBroken(str(col[5].string.strong))
+            
+        if (col[6].string != None):
+            time = str(col[5].string)
+        else:
+            time = _extractBroken(str(col[6].string.strong))
+            
         class_list[-1].addTut(TutorialSection(code, time, loc)) 
 
 
