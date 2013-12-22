@@ -33,26 +33,11 @@ class Class:
         
 class LectureSection:
     
-    def __init__(this, code, time, loc, instruct):
+    def __init__(this, code, loc, instruct):
         
         this.code = code
         this.instruct = instruct
         this.time = []
-        
-        if (time == "TBA"):
-            return
-        
-        l = []
-        s = ''
-        for char in time:
-            if (re.match("[A-Z]", char)):
-                l.append(char)
-            else:
-                s += char
-        
-        #fix this
-        for t in l:
-            this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))
                 
 
     def __str__(this):
@@ -63,20 +48,8 @@ class LectureSection:
         
         return s
     
-    def addTime(this, time, loc):
-        if (time == "TBA"):
-            return
-                
-        l = []
-        s = ''
-        for char in time:
-            if (re.match("[A-Z]", char)):
-                l.append(char)
-            else:
-                s += char
-                
-        for t in l:
-            this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))        
+    def addTime(this):
+        this.time.append(time)       
         
 
 class TutorialSection:
@@ -94,9 +67,11 @@ class TutorialSection:
         for char in time:
             if (re.match("[A-Z]", char)):
                 l.append(char)
-            else:
+            elif(re.match("[0-9]", char)):
                 s += char
         
+        if (len(s) == 1):
+            s+= str(int(s) +1)        
         for t in l:
             this.time.append(TimeSlot(t, loc, int(s[0]), int(s[-1])))
         
