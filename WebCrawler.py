@@ -17,7 +17,7 @@ def main():
         
     
     
-    page = requests.get(base_url + departments[5])
+    page = requests.get(base_url + departments[6])
     s = BeautifulSoup(page.text, 'html5lib')
     
     
@@ -28,7 +28,7 @@ def main():
         col = row.find_all('td')
         if (len(col) < 8): #Ignores canceled classes
             continue
-        if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', col[0].string)):
+        if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
             code = col[0].string
             sem = col[1].string
             name = str(col[2].string)
@@ -44,14 +44,14 @@ def main():
                 time = str(col[5].string)
             else:
                 x = str(col[5].strong)
-                time = _extractBroken(x)
+                time = _extractBrokenTime(x)
                 
             if (col[6].string != None):
                 loc = str(col[6].string)
             else:
                 x = str(col[6].strong)
                 if (x != "None"):
-                    loc =_extractBroken(x)
+                    loc =_extractBrokenLoc(str(col[6]))
                 else:
                     x = str(col[6].font)
                     loc = _multipleRooms(x)
@@ -68,15 +68,15 @@ def main():
             if (col[5].string != None):
                 time = str(col[5].string)
             else:
-                x = str(col[5].strong)
-                time = _extractBroken(x)
+                x = str(col[5])
+                time = _extractBrokenTime(x)
                                 
             if (col[6].string != None):
                 loc = str(col[6].string)
             else:
-                x = str(col[6].strong)
+                x = str(col[6])
                 if (x != "None"):
-                    loc =_extractBroken(x)
+                    loc =_extractBrokenLoc(x)
                 else:
                     x = str(col[6].font)
                     loc = _multipleRooms(x)
@@ -93,14 +93,14 @@ def main():
             if (col[5].string != None):
                 time = str(col[5].string)
             else:
-                x = str(col[5].strong)
-                time = _extractBroken(x)
+                x = str(col[5])
+                time = _extractBrokenTime(x)
                 
             if (col[6].string != None):
                 loc = str(col[6].string)
             else:
-                x = str(col[6].strong)
-                loc = _extractBroken(x)
+                x = str(col[6])
+                loc = _extractBrokenLoc(x)
                 
             class_list[-1].addTut(
                 TutorialSection(code, _generateTimeSlot(time, loc)[0]))
@@ -108,15 +108,15 @@ def main():
             if (col[5].string != None):
                 time = str(col[5].string)
             else:
-                x = str(col[5].strong)
-                time = _extractBroken(x)
+                x = str(col[5])
+                time = _extractBrokenTime(x)
                 
             if (col[6].string != None):
                 loc = str(col[6].string)
             else:
                 x = str(col[6].strong)
                 if (x != "None"):
-                    loc =_extractBroken(x)
+                    loc =_extractBrokenLoc(str(col[6]))
                 else:
                     x = str(col[6].font)
                     loc = _multipleRooms(x)
@@ -177,23 +177,16 @@ def _generateTimeSlot(time, loc):
     else:
         return [TBA]
 
-def _extractBroken(string):
-    new_string, i, check = "", 0, False
-    while (True):
-        if (string[i] == ">"):
-            check = True
-            i += 1
-            continue
-        elif (check == True):
-            if (string[i] == "<"):
-                break
-            else:
-                new_string += string[i]
-                i += 1
-        else:
-            i += 1
-        
-    return new_string   
+
+def _extractBrokenLoc(string):
+    match = re.search("[A-Z]{2} [A-Z]*[0-9]+", string)
+    return match.group(0)
+
+def _extractBrokenTime(string):
+    match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]* ?(\(p\))*", 
+                      string)
+    return match.group(0)
+    
 
 def _multipleRooms(string):
     new_string, i, check, n = "", 0, False, 0
