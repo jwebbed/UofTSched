@@ -184,6 +184,27 @@ class TimeSlot:
         
         return (other.start == this.start and other.end == this.end)
             
+class TimeTable:
+    
+    def __init__(this):
+        
+        this.time_slots = []
+        this.classes = []
+        
+    def addTimeSlot(this, slot):
+        
+        this.time_slots.append(slot)
+        if (not (slot.course in this.classes)):
+            this.classes.append(slot.course)
+            
+    def classList(this):
+        ''' (TimeTable) -> str
+        Returns a string of a list of classes in this time table '''
+        
+        s = ''
+        for i in this.classes:
+            s += str(i)
+        return s
         
         
 TBA = TimeSlot(None)
