@@ -1,5 +1,4 @@
-import re
-
+import hashlib
 
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
