@@ -30,8 +30,7 @@ def WebCrawler():
                 if (len(col) < 8): #Ignores canceled classes
                     continue
                 if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
-                    if (len(class_list) > 0):
-                        print(class_list[-1].verbose())
+                    
                     code = str(col[0].string)
                     sem = str(col[1].string)
                     if (sem == 'None'):
@@ -42,7 +41,7 @@ def WebCrawler():
                         elif (re.match('F', str(col[1]))):
                             sem = 'F'
                         else:
-                            raise Exception("Unable to determine Semester")
+                            raise NoSemesterException(code, str(col[1]))                             
                     name = str(col[2].string)
                     if (not re.match("[a-zA-Z\s]*", name)):
                         name = _extractBroken(name)     
@@ -140,8 +139,13 @@ def WebCrawler():
                     instruct = str(col[7].string)
                     for slot in _generateTimeSlot(time, loc):
                         sec.addTime(slot)   
-    except:
-        print(class_list[-1].code)
+    
+    except NoSemesterException as e:
+        print("No Valid Semester Found")
+        print("Course Code: " + e.course)
+        print(e.code)
+        
+    finally:
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback.print_exception(exc_type, exc_value, exc_traceback)
             
@@ -275,6 +279,14 @@ def _multipleRooms(string):
             break
         
     return new_string 
+
+## Exceptions ##
+
+class NoSemesterException(Exception):
+    
+    def __init__(this, course, code):
+        this.course = course
+        this.code = code
     
 if __name__ == "__main__":
     x = WebCrawler()
