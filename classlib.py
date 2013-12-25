@@ -1,4 +1,6 @@
 import re
+import hashlib
+import random
 
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
@@ -16,6 +18,9 @@ class Class:
         
     def __str__(this):
         return this.code + " " + this.sem + " " + this.name
+    
+    def __repr__(this):
+        return this.__str__()
     
     def addLec(this, lec):
         this.lectures.append(lec)
@@ -91,13 +96,17 @@ class TimeSlot:
         order, otherwise only input should be None indicating TBA'''
         
         if (args[0] == None):
-            this.TBA = True           
+            this.TBA = True
+            this.ID = b'TBA'
         else:
             this.day = args[0]
             this.loc = args[1]
             this.start = args[2]
             this.end = args[3]
             this.TBA = False
+            this.code = args[4]
+            this.course = args[5]
+            this.__hash__()
         
     def __str__(this):
         if (this.TBA):
@@ -110,5 +119,15 @@ class TimeSlot:
             time = "%02d:%02d-%02d:%02d" % (hour_start, minute_start,
                                                         hour_end, minute_end)
             return _days[this.day] + ' ' + this.loc + ' ' + time
+        
+    def __hash__(this):
+        ''' Used to make a unique ID for this TimeSlot '''
+        s = this.course.verbose()
+        s += str(this.day)
+        s += str(this.start)
+        s += str(this.end)
+        s += this.code
+        b = str.encode(s)
+        this.ID = hashlib.sha256(b).hexdigest()
         
 TBA = TimeSlot(None)

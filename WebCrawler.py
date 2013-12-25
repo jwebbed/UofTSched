@@ -41,7 +41,11 @@ def WebCrawler():
                         elif (re.search('F', str(col[1]))):
                             sem = 'F'
                         else:
-                            raise NoSemesterException(code, str(col[1]))                             
+                            print("Course Code: " + code)
+                            print("HTML Code: " + str(col[1]))
+                            sem = input("What is the sem?")
+                            if (sem != 'S' or sem != 'F' or sem != 'Y'):
+                                raise NoSemesterException(code, str(col[1]))
                     name = str(col[2].string)
                     if (not re.match("[a-zA-Z\s]*", name)):
                         name = _extractBroken(name)     
@@ -73,9 +77,9 @@ def WebCrawler():
                         
                     instruct = str(col[7].string)
                     sec = LectureSection(code, instruct)
-                    for slot in _generateTimeSlot(time, loc):
+                    for slot in _generateTimeSlot(time, loc, code, curr):
                         sec.addTime(slot)
-                    class_list[-1].addLec(sec)
+                    curr.addLec(sec)
                 elif (re.search('P[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)        
                                     
@@ -98,9 +102,9 @@ def WebCrawler():
                                         
                     instruct = str(col[7].string)
                     sec = PracticalSection(code, instruct)
-                    for slot in _generateTimeSlot(time, loc):
+                    for slot in _generateTimeSlot(time, loc, code, curr):
                         sec.addTime(slot)
-                    class_list[-1].addLec(sec)                
+                    curr.addLec(sec)                
                 elif (re.search('T[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)
                     
@@ -116,8 +120,8 @@ def WebCrawler():
                         x = str(col[6])
                         loc = _extractBrokenLoc(x)
                         
-                    class_list[-1].addTut(
-                        TutorialSection(code, _generateTimeSlot(time, loc)[0]))
+                    curr.addTut(TutorialSection(
+                        code, _generateTimeSlot(time, loc, code, curr)[0]))
                 else:
                     if (col[5].string != None):
                         time = str(col[5].string)
@@ -137,7 +141,7 @@ def WebCrawler():
                             
                         
                     instruct = str(col[7].string)
-                    for slot in _generateTimeSlot(time, loc):
+                    for slot in _generateTimeSlot(time, loc, code, curr):
                         sec.addTime(slot)   
     
     except NoSemesterException as e:
@@ -152,7 +156,7 @@ def WebCrawler():
     return class_list
    
 
-def _generateTimeSlot(time, loc):
+def _generateTimeSlot(time, loc, course_code, course_obj):
     if (time != "TBA"):
         l, s, start, end = [], '', None, None
         
@@ -220,7 +224,8 @@ def _generateTimeSlot(time, loc):
             raise Exception("Unable to read time format")
         
         if (start and end):
-            return [TimeSlot(t, loc, start, end) for t in l]
+            return [TimeSlot(t, loc, start, end, course_code, course_obj) 
+                    for t in l]
         else:
             return [TBA]
             
@@ -292,12 +297,12 @@ class NoSemesterException(CrawlerError):
     
 if __name__ == "__main__":
     x = WebCrawler()
-    #s = ''
-    #for i in x:
-        #s += i.verbose() + '\n'
-    #f = open('downloaded_data.txt', 'w')
-    #f.write(s)
-    #f.close()
+    s = ''
+    for i in x:
+        s += i.verbose() + '\n'
+    f = open('downloaded_data.txt', 'w')
+    f.write(s)
+    f.close()
     
     
     
