@@ -150,6 +150,7 @@ class TimeSlot:
         
     def __hash__(this):
         ''' Used to make a unique ID for this TimeSlot '''
+        
         s = this.course.verbose()
         s += str(this.day)
         s += str(this.start)
@@ -167,6 +168,8 @@ class TimeSlot:
         return not (other.start >= this.end or other.end <= this.start)
     
     def equals(this, other):
+        ''' (TimeSlot, TimeSlot) -> bool
+        Returns true iff both time slots cover the exact same time '''
         
         return (other.start == this.start and other.end == this.end)
             
