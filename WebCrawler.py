@@ -104,7 +104,7 @@ def WebCrawler():
                     sec = PracticalSection(code, instruct)
                     for slot in _generateTimeSlot(time, loc, code, curr):
                         sec.addTime(slot)
-                    curr.addLec(sec)                
+                    curr.addPra(sec)                
                 elif (re.search('T[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)
                     
@@ -297,12 +297,12 @@ class NoSemesterException(CrawlerError):
     
 if __name__ == "__main__":
     x = WebCrawler()
-    #s = ''
-    #for i in x:
-        #s += i.verbose() + '\n'
-    #f = open('downloaded_data.txt', 'w')
-    #f.write(s)
-    #f.close()
+    s = ''
+    for i in x:
+        s += i.verbose() + '\n'
+    f = open('downloaded_data.txt', 'w')
+    f.write(s)
+    f.close()
     
     
     
