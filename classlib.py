@@ -1,6 +1,5 @@
 import re
-import hashlib
-import random
+
 
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
@@ -35,6 +34,16 @@ class Class:
         for t in this.tutorials:
             s += "\n\t" + str(t)
         return s
+    
+    def getLectureTimeSlots(this):
+        slots = []
+        for slot in this.lectures:
+            slots += slot.getTimeSlots()
+        return slots
+    
+    def getTutorialTimeSlots(this):
+        
+        return [slot.getTimeSlots for slot in this.tutorials]
        
 class LectureSection:
     
@@ -56,6 +65,10 @@ class LectureSection:
     def addTime(this, timeslot):
         this.time.append(timeslot)
         
+    def getTimeSlots(this):
+        
+        return this.time
+        
 class PracticalSection:
     
     def __init__(this, code, instruct):
@@ -76,6 +89,9 @@ class PracticalSection:
     def addTime(this, timeslot):
         this.time.append(timeslot) 
         
+    def getTimeSlots(this):
+        
+        return this.time
 
 class TutorialSection:
     
@@ -88,6 +104,10 @@ class TutorialSection:
     def __str__(this):
 
         return this.code + " " + str(this.timeslot)
+    
+    def getTimeSlots(this):
+        
+        return this.timeslot
 
 class TimeSlot:
     
