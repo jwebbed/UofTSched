@@ -1,5 +1,3 @@
-import re
-
 _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
          'F' : 'Friday'}
 
