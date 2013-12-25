@@ -104,7 +104,7 @@ def WebCrawler():
                     sec = PracticalSection(code, instruct)
                     for slot in _generateTimeSlot(time, loc, code, curr):
                         sec.addTime(slot)
-                    curr.addLec(sec)                
+                    curr.addPra(sec)                
                 elif (re.search('T[0-9]{4}', str(col[3]))):
                     code = str(col[3].string)
                     

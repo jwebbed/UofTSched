@@ -12,6 +12,7 @@ class Class:
         this.sem = sem
         this.name = name
         this.lectures = []
+        this.practicals - []
         this.tutorials = []
         
     def __str__(this):
@@ -22,6 +23,9 @@ class Class:
     
     def addLec(this, lec):
         this.lectures.append(lec)
+        
+    def addPra(this, pra):
+        this.praticals.append(pra)
     
     def addTut(this, tut):
         this.tutorials.append(tut)
@@ -39,6 +43,12 @@ class Class:
         for slot in this.lectures:
             slots += slot.getTimeSlots()
         return slots
+    
+    def getPracticalTimeSlots(this):
+            slots = []
+            for slot in this.lectures:
+                slots += slot.getTimeSlots()
+            return slots    
     
     def getTutorialTimeSlots(this):
         
@@ -70,11 +80,12 @@ class LectureSection:
         
 class PracticalSection:
     
-    def __init__(this, code, instruct):
+    def __init__(this, code, instruct, alt = False):
         
         this.code = code
         this.instruct = instruct
         this.time = []
+        this.alternating = alt
                 
 
     def __str__(this):
@@ -122,9 +133,9 @@ class TimeSlot:
             this.loc = args[1]
             this.start = args[2]
             this.end = args[3]
-            this.TBA = False
             this.code = args[4]
             this.course = args[5]
+            this.TBA = False
             this.__hash__()
      
     def time(this):
@@ -146,7 +157,7 @@ class TimeSlot:
             return _days[this.day] + ' ' + this.loc + ' ' + this.time()
        
     def __repr__(this):
-        return this.__str__
+        return this.__str__()
         
     def __hash__(this):
         ''' Used to make a unique ID for this TimeSlot '''
