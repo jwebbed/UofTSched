@@ -46,7 +46,7 @@ class Class:
     
     def getPracticalTimeSlots(this):
             slots = []
-            for slot in this.lectures:
+            for slot in this.practicals:
                 slots += slot.getTimeSlots()
             return slots    
     
@@ -61,14 +61,33 @@ class Class:
         pra = this.getPracticalTimeSlots()
         tut = this.getTutorialTimeSlots()
         
-        if (not lec.isEmpty()):
+        if (len(lec) != 0):
             l.append(lec)
-        if (not pra.isEmpty()):
+        if (len(pra) != 0):
             l.append(pra)
-        if (not tut.isEmpty()):
+        if (len(tut) != 0):
             l.append(tut)  
             
         return l
+    
+    def getSections(this):
+            
+        l = []
+        if (len(this.lectures) != 0):
+            l.append(this.lectures)
+        if (len(this.practicals) != 0):
+            l.append(this.practicals)
+        if (len(this.tutorials) != 0):
+            l.append(tut)  
+            
+        return l 
+        
+    def TBA(this):
+        ''' Returns true if anything in this class is TBA '''
+        for l in this.getTimeSlots():
+            if (TBA in l):
+                return True
+        return False
         
 class LectureSection:
     
@@ -178,7 +197,7 @@ class TimeSlot:
     def __hash__(this):
         ''' Used to make a unique ID for this TimeSlot '''
         
-        s = this.course.verbose()
+        s = this.course.code
         s += str(this.day)
         s += str(this.start)
         s += str(this.end)
@@ -192,7 +211,12 @@ class TimeSlot:
         time, use the equals method if you want to know if they cover the exact
         same ammount of time '''
         
-        return not (other.start >= this.end or other.end <= this.start)
+        if (type(other) != type(this) or this is TBA or other is TBA or 
+            (this.sem == 'F' and other.sem == 'S')):
+            return False
+        else:
+            return ((not (other.end <= this.start or other.start >= this.end))
+                    and this.day == other.day)
     
     def equals(this, other):
         ''' (TimeSlot, TimeSlot) -> bool

@@ -581,22 +581,6 @@ ANT200Y1 Y Intro Archaeology
 ANT203Y1 Y Nature of Humans
 	L5101 A. MacKenzie
 		Tuesday MS 3154  18:00-19:00
-	P0101  
-		Wednesday AP 130  10:00-11:00
-	P0201  
-		Wednesday AP 130  11:00-12:00
-	P0301  
-		Wednesday AP 130  12:00-13:00
-	P0401  
-		Wednesday AP 130  13:00-14:00
-	P0501  
-		Wednesday AP 130  14:00-15:00
-	P0601  
-		Wednesday AP 130  16:00-17:00
-	P5101  
-		Wednesday AP 130  17:00-18:00
-	P5201  
-		Wednesday AP 130  18:00-19:00
 ANT204H1 F Ant of Contemp World
 	L0101 P. Dave
 		Wednesday MS 2158  14:00-15:00
@@ -661,19 +645,9 @@ ANT329H1 F Lang Power Structure
 ANT334H1 F Human Skeletal Biol
 	L0101 S. Pfeiffer
 		Wednesday SS 2108  10:00-11:00
-	P0101  
-		Thursday AP 130  10:00-11:00
-	P0201  
-		Thursday AP 130  13:00-14:00
 ANT335Y1 F Human Evolution
 	L0101 D. Begun
 		Monday SS 2106  10:00-11:00
-	P0101  
-		Monday AP 412 13:00-14:00
-	P0201  
-		Tuesday AP 412 13:00-14:00
-	P0301  
-		Wednesday AP 412 13:00-14:00
 ANT336H1 F Evol Anth Theory
 	L0101 S. Pfeiffer
 		Tuesday SS 2127  10:00-11:00
@@ -1459,22 +1433,6 @@ ANT200Y1 Y Intro Archaeology
 ANT203Y1 Y Nature of Humans
 	L5101 A. MacKenzie
 		Tuesday MS 3154  18:00-19:00
-	P0101  
-		Wednesday AP 130  10:00-11:00
-	P0201  
-		Wednesday AP 130  11:00-12:00
-	P0301  
-		Wednesday AP 130  12:00-13:00
-	P0401  
-		Wednesday AP 130  13:00-14:00
-	P0501  
-		Wednesday AP 130  14:00-15:00
-	P0601  
-		Wednesday AP 130  16:00-17:00
-	P5101  
-		Wednesday AP 130  17:00-18:00
-	P5201  
-		Wednesday AP 130  18:00-19:00
 ANT204H1 F Ant of Contemp World
 	L0101 P. Dave
 		Wednesday MS 2158  14:00-15:00
@@ -1539,19 +1497,9 @@ ANT329H1 F Lang Power Structure
 ANT334H1 F Human Skeletal Biol
 	L0101 S. Pfeiffer
 		Wednesday SS 2108  10:00-11:00
-	P0101  
-		Thursday AP 130  10:00-11:00
-	P0201  
-		Thursday AP 130  13:00-14:00
 ANT335Y1 F Human Evolution
 	L0101 D. Begun
 		Monday SS 2106  10:00-11:00
-	P0101  
-		Monday AP 412 13:00-14:00
-	P0201  
-		Tuesday AP 412 13:00-14:00
-	P0301  
-		Wednesday AP 412 13:00-14:00
 ANT336H1 F Evol Anth Theory
 	L0101 S. Pfeiffer
 		Tuesday SS 2127  10:00-11:00
@@ -3061,26 +3009,6 @@ CHM138H1 F Intro Org Chemistry I
 	L5101 Browning/Chin/Morra
 		Tuesday LM 159  19:00-20:00
 		Thursday LM 159  19:00-20:00
-	P0101  
-		Monday LM 217  14:00-15:00
-	P0102  
-		Monday LM 217  14:00-15:00
-	P0201  
-		Tuesday LM 217  14:00-15:00
-	P0202  
-		Tuesday LM 217  14:00-15:00
-	P0301  
-		Wednesday LM 217  14:00-15:00
-	P0302  
-		Wednesday LM 217  14:00-15:00
-	P0401  
-		Thursday LM 217  14:00-15:00
-	P0402  
-		Thursday LM 217  14:00-15:00
-	P0502  
-		Friday LM 217  14:00-15:00
-	P5401  
-		Thursday LM 217  18:00-19:00
 	T0101 Tuesday   13:00-14:00
 	T0201 Tuesday   14:00-15:00
 	T0301 Wednesday   14:00-15:00
@@ -3098,22 +3026,6 @@ CHM138H1 S Intro Org Chemistry I
 		Tuesday MC 102  09:00-10:00
 		Thursday MC 102  09:00-10:00
 		Friday MC 102  09:00-10:00
-	P0101  
-		Monday LM 217  14:00-15:00
-	P0102  
-		Monday LM 217  14:00-15:00
-	P0201  
-		Tuesday LM 217  14:00-15:00
-	P0202  
-		Tuesday LM 217  14:00-15:00
-	P0301  
-		Wednesday LM 217  14:00-15:00
-	P0302  
-		Wednesday LM 217  14:00-15:00
-	P0401  
-		Thursday LM 217  14:00-15:00
-	P0402  
-		Thursday LM 217  14:00-15:00
 	T0101 Monday   14:00-15:00
 	T0201 Tuesday   13:00-14:00
 	T0301 Wednesday   14:00-15:00
@@ -3129,22 +3041,6 @@ CHM139H1 F Chem Physical Princ
 		Tuesday MC 102  09:00-10:00
 		Thursday MC 102  09:00-10:00
 		Friday MC 102  09:00-10:00
-	P0201  
-		Tuesday LM 102  14:00-15:00
-	P0202  
-		Tuesday LM 102  14:00-15:00
-	P0301  
-		Wednesday LM 102  14:00-15:00
-	P0302  
-		Wednesday LM 102  14:00-15:00
-	P0401  
-		Thursday LM 102  14:00-15:00
-	P0402  
-		Thursday LM 102  14:00-15:00
-	P0501  
-		Friday LM 102  14:00-15:00
-	P0502  
-		Friday LM 102  14:00-15:00
 	T0101 Tuesday   13:00-14:00
 	T0201 Wednesday   14:00-15:00
 	T0301 Wednesday   15:00-16:00
@@ -3162,24 +3058,6 @@ CHM139H1 S Chem Physical Princ
 	L5101 Tba
 		Tuesday LM 159  19:00-20:00
 		Thursday LM 159  19:00-20:00
-	P0101  
-		Monday LM 102  14:00-15:00
-	P0102  
-		Monday LM 102  14:00-15:00
-	P0201  
-		Tuesday LM 102  14:00-15:00
-	P0202  
-		Tuesday LM 102  14:00-15:00
-	P0301  
-		Wednesday LM 102  14:00-15:00
-	P0302  
-		Wednesday LM 102  14:00-15:00
-	P0401  
-		Thursday LM 102  14:00-15:00
-	P0402  
-		Thursday LM 102  14:00-15:00
-	P5401  
-		Thursday   18:00-19:00
 	T0101 Tuesday   13:00-14:00
 	T0201 Tuesday   14:00-15:00
 	T0301 Wednesday   14:00-15:00
@@ -3193,10 +3071,6 @@ CHM151Y1 Y Chemistry: Molec Sci
 		Monday LM 159  12:00-13:00
 		Wednesday LM 159  12:00-13:00
 		Friday LM 159  12:00-13:00
-	P0101  
-		Monday LM 113  13:00-14:00
-	P0202  
-		Tuesday LM 113  13:00-14:00
 	T0101 Wednesday SS 1069  13:00-14:00
 	T0201 Tuesday MP 137  10:00-11:00
 	T0301 Friday LM 161  13:00-14:00
@@ -3211,12 +3085,6 @@ CHM217H1 F Intro Analytic Chem
 		Tuesday LM 162  16:00-17:00
 		Thursday LM 162  16:00-17:00
 		Friday LM 162  15:00-16:00
-	P0101  
-		Monday LM 6  09:00-10:00
-	P0201  
-		Tuesday LM 6  09:00-10:00
-	P0301  
-		Wednesday LM 6  09:00-10:00
 	T0101 Tuesday LM 155  15:00-16:00
 	T0102 Tuesday IN 204  15:00-16:00
 	T0201 Friday LM 157  13:00-14:00
@@ -3245,14 +3113,6 @@ CHM238Y1 Y Intro Inorg Chem
 	L0101 McIntosh/Browning/Song/Ozin
 		Monday LM 162  15:00-16:00
 		Wednesday LM 162  15:00-16:00
-	P0201  
-		Tuesday LM 211  09:00-10:00
-	P0202  
-		Tuesday LM 211  09:00-10:00
-	P0301  
-		Wednesday LM 211  09:00-10:00
-	P0302  
-		Wednesday LM 211  09:00-10:00
 CHM247H1 F Intro Organic Chem II
 	L5101 C. Kutas
 		Wednesday LM 159  18:00-19:00
@@ -3267,27 +3127,11 @@ CHM247H1 S Intro Organic Chem II
 		Monday ES 1050  16:00-17:00
 		Tuesday MS 2158  16:00-17:00
 		Thursday MS 2158  16:00-17:00
-	P0201  
-		Tuesday LM 217  20:00-21:00
-	P0202  
-		Tuesday LM 217  20:00-21:00
-	P0301  
-		Wednesday LM 217  20:00-21:00
-	P0302  
-		Wednesday LM 217  20:00-21:00
-	P0401  
-		Thursday LM 217  20:00-21:00
-	P0402  
-		Thursday LM 217  20:00-21:00
 CHM249H1 S Organic Chemistry
 	L0101 Yudin/Dicks
 		Monday LM 158  13:00-14:00
 		Tuesday LM 158  15:00-16:00
 		Thursday LM 158  15:00-16:00
-	P0101  
-		Tuesday LM 113  20:00-21:00
-	P0201  
-		Friday LM 113  20:00-21:00
 CHM299Y1 Y Rsch Opportunity Prg
 	L0101 I. Csizmadia
 		TBA
@@ -3309,10 +3153,6 @@ CHM317H1 S Intro Instr Analysis
 	L0101 A. Wheeler
 		Monday LM 158  14:00-15:00
 		Wednesday LM 158  14:00-15:00
-	P0201  
-		Tuesday LM 6  09:00-10:00
-	P0301  
-		Wednesday LM 6  09:00-10:00
 CHM325H1 S Materials Chem
 	L2001 Kumacheva/Ozin
 		Thursday LM 158  17:00-18:00
@@ -3334,10 +3174,6 @@ CHM338H1 F Intermed Inorg Chem
 	L0101 D. Stephan
 		Monday LM 155  15:00-16:00
 		Wednesday LM 155  15:00-16:00
-	P0101  
-		Thursday LM 211  20:00-21:00
-	P0201  
-		Friday LM 211  20:00-21:00
 CHM342H1 F Organic Synthesis
 	L0101 M. Taylor
 		Monday LM 158  13:00-14:00
@@ -3346,10 +3182,6 @@ CHM343H1 S Organic Laboratory
 	L0101 Tba
 		Monday LM 158  16:00-17:00
 		Wednesday LM 158  16:00-17:00
-	P0101  
-		Monday LM 113  20:00-21:00
-	P0201  
-		Tuesday LM 113  20:00-21:00
 CHM347H1 F Org Chem Biol Compds
 	L0101 J. Chin
 		Monday LM 159  16:00-17:00
@@ -3359,10 +3191,6 @@ CHM348H1 F Organic Reaction Mec
 	L0101 R. Kluger
 		Tuesday LM 158  14:00-15:00
 		Thursday LM 158  14:00-15:00
-	P0101  
-		Monday LM 113  20:00-21:00
-	P0201  
-		Tuesday LM 113  20:00-21:00
 CHM379H1 S Biomolec Chem
 	L0101 Woolley/Zamble
 		Tuesday LM 157  14:00-15:00
@@ -3375,12 +3203,6 @@ CHM410H1 F Analyt Environ Chem
 	L2001 J. D'Eon
 		Tuesday LM 155  16:00-17:00
 		Thursday LM 155  16:00-17:00
-	P0101  
-		Friday LM 9  09:00-10:00
-	P0201  
-		Friday LM 9  13:00-14:00
-	P2001  
-		Friday LM 9  13:00-14:00
 CHM414H1 F Bio & Chem Sensors
 	L0101 M. Thompson
 		Monday LM 158  15:00-16:00
@@ -3461,80 +3283,12 @@ BIO130H1 S Molecular & Cell Bio
 		Thursday MS 2158  18:00-19:00
 	L5101 Tba
 		Thursday MS 2158  18:00-19:00
-	P0101  
-		Monday   13:00-14:00
-	P0102  
-		Monday   13:00-14:00
-	P0201  
-		Tuesday   13:00-14:00
-	P0202  
-		Tuesday   13:00-14:00
-	P0301  
-		Wednesday   13:00-14:00
-	P0302  
-		Wednesday   13:00-14:00
-	P0401  
-		Thursday   13:00-14:00
-	P0402  
-		Thursday   13:00-14:00
-	P0501  
-		Friday   11:00-12:00
-	P0502  
-		Friday   11:00-12:00
-	P5101  
-		Monday   17:00-18:00
-	P5102  
-		Monday   17:00-18:00
-	P5201  
-		Monday   18:00-19:00
-	P5202  
-		Monday   18:00-19:00
-	P5301  
-		Tuesday   17:00-18:00
-	P5302  
-		Tuesday   17:00-18:00
-	P5401  
-		Tuesday   18:00-19:00
-	P5402  
-		Tuesday   18:00-19:00
 BIO230H1 F Genes to Organisms
 	L0101 Desveaux/Harris
 		Tuesday CH   12:00-13:00
 		Thursday CH   13:00-14:00
 	L5101 Tba
 		Tuesday ES 1050  18:00-19:00
-	P0101  
-		Tuesday   09:00-10:00
-	P0102  
-		Tuesday   09:00-10:00
-	P0201  
-		Tuesday   14:00-15:00
-	P0202  
-		Tuesday   14:00-15:00
-	P0301  
-		Wednesday   09:00-10:00
-	P0302  
-		Wednesday   09:00-10:00
-	P0401  
-		Wednesday   14:00-15:00
-	P0402  
-		Wednesday   14:00-15:00
-	P0501  
-		Thursday   09:00-10:00
-	P0502  
-		Thursday   09:00-10:00
-	P0601  
-		Thursday   14:00-15:00
-	P0602  
-		Thursday   14:00-15:00
-	P5101  
-		Wednesday   18:00-19:00
-	P5102  
-		Wednesday   18:00-19:00
-	P5201  
-		Thursday   18:00-19:00
-	P5202  
-		Thursday   18:00-19:00
 BIO255H1 F Advanced Cell & Mol
 	L0101 Desveaux/Harris
 		Tuesday CH   12:00-13:00
@@ -3558,29 +3312,9 @@ BIO260H1 S Genetics
 BIO270H1 F Animal Physiology I
 	L0101 C. Garside
 		Wednesday CH   15:00-16:00
-	P0101  
-		Monday RW 309  13:00-14:00
-	P0201  
-		Tuesday RW 309  09:00-10:00
-	P0301  
-		Tuesday RW 309  14:00-15:00
-	P0401  
-		Thursday RW 309  09:00-10:00
-	P0501  
-		Friday RW 309  09:00-10:00
 BIO271H1 S Animal Physiology II
 	L0101 Woodin/Garside
 		Wednesday CH   15:00-16:00
-	P0101  
-		Monday RW 309  13:00-14:00
-	P0201  
-		Tuesday RW 309  09:00-10:00
-	P0301  
-		Tuesday RW 309  14:00-15:00
-	P0401  
-		Thursday RW 309  09:00-10:00
-	P0501  
-		Friday RW 309  09:00-10:00
 CSB201H1 F Mol Bio Biotech & You
 	L0101 K. Yip
 		TBA
@@ -3656,10 +3390,6 @@ CSB351Y1 Y Introduct Virology
 CSB352H1 S Bioinformatic Methods
 	L0101 Tba
 		TBA
-	P0101  
-		Thursday   16:00-17:00
-	P0201  
-		Friday   12:00-13:00
 CSB353H1 S Intro Plant-Microbe
 	L0101 K. Yoshioka
 		Thursday WI 1016  15:00-16:00
@@ -3940,80 +3670,12 @@ BIO130H1 S Molecular & Cell Bio
 		Thursday MS 2158  18:00-19:00
 	L5101 Tba
 		Thursday MS 2158  18:00-19:00
-	P0101  
-		Monday   13:00-14:00
-	P0102  
-		Monday   13:00-14:00
-	P0201  
-		Tuesday   13:00-14:00
-	P0202  
-		Tuesday   13:00-14:00
-	P0301  
-		Wednesday   13:00-14:00
-	P0302  
-		Wednesday   13:00-14:00
-	P0401  
-		Thursday   13:00-14:00
-	P0402  
-		Thursday   13:00-14:00
-	P0501  
-		Friday   11:00-12:00
-	P0502  
-		Friday   11:00-12:00
-	P5101  
-		Monday   17:00-18:00
-	P5102  
-		Monday   17:00-18:00
-	P5201  
-		Monday   18:00-19:00
-	P5202  
-		Monday   18:00-19:00
-	P5301  
-		Tuesday   17:00-18:00
-	P5302  
-		Tuesday   17:00-18:00
-	P5401  
-		Tuesday   18:00-19:00
-	P5402  
-		Tuesday   18:00-19:00
 BIO230H1 F Genes to Organisms
 	L0101 Desveaux/Harris
 		Tuesday CH   12:00-13:00
 		Thursday CH   13:00-14:00
 	L5101 Tba
 		Tuesday ES 1050  18:00-19:00
-	P0101  
-		Tuesday   09:00-10:00
-	P0102  
-		Tuesday   09:00-10:00
-	P0201  
-		Tuesday   14:00-15:00
-	P0202  
-		Tuesday   14:00-15:00
-	P0301  
-		Wednesday   09:00-10:00
-	P0302  
-		Wednesday   09:00-10:00
-	P0401  
-		Wednesday   14:00-15:00
-	P0402  
-		Wednesday   14:00-15:00
-	P0501  
-		Thursday   09:00-10:00
-	P0502  
-		Thursday   09:00-10:00
-	P0601  
-		Thursday   14:00-15:00
-	P0602  
-		Thursday   14:00-15:00
-	P5101  
-		Wednesday   18:00-19:00
-	P5102  
-		Wednesday   18:00-19:00
-	P5201  
-		Thursday   18:00-19:00
-	P5202  
-		Thursday   18:00-19:00
 BIO255H1 F Advanced Cell & Mol
 	L0101 Desveaux/Harris
 		Tuesday CH   12:00-13:00
@@ -4037,29 +3699,9 @@ BIO260H1 S Genetics
 BIO270H1 F Animal Physiology I
 	L0101 C. Garside
 		Wednesday CH   15:00-16:00
-	P0101  
-		Monday RW 309  13:00-14:00
-	P0201  
-		Tuesday RW 309  09:00-10:00
-	P0301  
-		Tuesday RW 309  14:00-15:00
-	P0401  
-		Thursday RW 309  09:00-10:00
-	P0501  
-		Friday RW 309  09:00-10:00
 BIO271H1 S Animal Physiology II
 	L0101 Woodin/Garside
 		Wednesday CH   15:00-16:00
-	P0101  
-		Monday RW 309  13:00-14:00
-	P0201  
-		Tuesday RW 309  09:00-10:00
-	P0301  
-		Tuesday RW 309  14:00-15:00
-	P0401  
-		Thursday RW 309  09:00-10:00
-	P0501  
-		Friday RW 309  09:00-10:00
 CSB201H1 F Mol Bio Biotech & You
 	L0101 K. Yip
 		TBA
@@ -4135,10 +3777,6 @@ CSB351Y1 Y Introduct Virology
 CSB352H1 S Bioinformatic Methods
 	L0101 Tba
 		TBA
-	P0101  
-		Thursday   16:00-17:00
-	P0201  
-		Friday   12:00-13:00
 CSB353H1 S Intro Plant-Microbe
 	L0101 K. Yoshioka
 		Thursday WI 1016  15:00-16:00
@@ -5650,26 +5288,10 @@ ESS221H1 F Minerals and Rocks
 	L0101 G. Henderson
 		Tuesday ES B142  11:00-12:00
 		Wednesday ES B142  11:00-12:00
-	P0101  
-		Monday   14:00-15:00
-	P0201  
-		Thursday   09:00-10:00
-	P0301  
-		Thursday   14:00-15:00
-	P0401  
-		Friday   13:00-14:00
 ESS222H1 S Petrology
 	L0101 J. Mungall
 		Tuesday ES B142  12:00-13:00
 		Wednesday ES B142  12:00-13:00
-	P0101  
-		Wednesday ES 2101  14:00-15:00
-	P0201  
-		Thursday ES 2101  09:00-10:00
-	P0301  
-		Thursday ES 2101  14:00-15:00
-	P0401  
-		Friday   13:00-14:00
 ESS241H1 F Geologic Structures
 	L5101 C. Bank
 		Tuesday BA 1190  17:00-18:00
@@ -5989,69 +5611,13 @@ BIO120H1 F Adaptation & Biodiv
 		Wednesday ES 1050  18:00-19:00
 	L5101 Barrett/Thomson
 		Wednesday ES 1050  18:00-19:00
-	P0201  
-		Tuesday   13:00-14:00
-	P0202  
-		Tuesday   13:00-14:00
-	P0301  
-		Wednesday   13:00-14:00
-	P0302  
-		Wednesday   13:00-14:00
-	P0401  
-		Thursday   13:00-14:00
-	P0402  
-		Thursday   13:00-14:00
-	P0501  
-		Friday   11:00-12:00
-	P0502  
-		Friday   11:00-12:00
-	P5401  
-		Thursday   18:00-19:00
-	P5402  
-		Thursday   18:00-19:00
 BIO220H1 S Genomes to Ecosystems
 	L0101 Rowe/Stinchcombe
 		Tuesday CH   13:00-14:00
 		Thursday CH   13:00-14:00
-	P0101  
-		Tuesday   09:00-10:00
-	P0102  
-		Tuesday   09:00-10:00
-	P0201  
-		Tuesday   14:00-15:00
-	P0202  
-		Tuesday   14:00-15:00
-	P0301  
-		Wednesday   09:00-10:00
-	P0302  
-		Wednesday   09:00-10:00
-	P0401  
-		Wednesday   14:00-15:00
-	P0402  
-		Wednesday   14:00-15:00
-	P0501  
-		Thursday   14:00-15:00
-	P0502  
-		Thursday   14:00-15:00
-	P5101  
-		Wednesday   18:00-19:00
-	P5102  
-		Wednesday   18:00-19:00
-	P5201  
-		Thursday   18:00-19:00
-	P5202  
-		Thursday   18:00-19:00
 BIO251H1 S Form Function Develop
 	L5101 T. Sage
 		Tuesday KP 108  18:00-19:00
-	P0101  
-		Monday   14:00-15:00
-	P0102  
-		Monday   14:00-15:00
-	P5101  
-		Monday   18:00-19:00
-	P5102  
-		Monday   18:00-19:00
 EEB202H1 F Plants & Society
 	L0101 Barrett/Carleton
 		Tuesday RW 110  13:00-14:00
@@ -6078,49 +5644,21 @@ EEB225H1 S Biostatistics
 	L0101 Fortin/Gilbert
 		Tuesday RW 110  15:00-16:00
 		Thursday RW 110  15:00-16:00
-	P0101  
-		Wednesday   13:00-14:00
-	P0201  
-		Wednesday   15:00-16:00
-	P0301  
-		Tuesday   10:00-11:00
 EEB255H1 S Fundl Conserv Biol
 	L0101 M. Gross
 		Wednesday UC 161  13:00-14:00
 EEB263Y1 Y Compar Vert Anatomy
 	L5101 G. Deluliis
 		Tuesday RW 117  18:00-19:00
-	P0101  
-		Thursday RW 13  09:00-10:00
-	P5101  
-		Thursday RW 13  18:00-19:00
 	L5101 D. Zamparo
 		Tuesday RW 110  18:00-19:00
-	P0101  
-		Wednesday RW 13  14:00-15:00
-	P0102  
-		Wednesday RW 13  14:00-15:00
-	P5101  
-		Wednesday RW 13  18:00-19:00
 EEB267H1 S Vertebrate Diversity
 	L0101 D. McLennan
 		Tuesday RW 110  09:00-10:00
 		Thursday RW 110  09:00-10:00
-	P0101  
-		Wednesday RW 13  09:00-10:00
-	P0102  
-		Wednesday RW 13  09:00-10:00
-	P0201  
-		Wednesday RW 13  13:00-14:00
-	P0202  
-		Wednesday RW 13  13:00-14:00
 EEB268H1 F Plant Diversity
 	L5101 R. Sage
 		Wednesday MP 134  18:00-19:00
-	P0101  
-		Monday ES 1032  14:00-15:00
-	P5101  
-		Monday ES 1032  18:00-19:00
 EEB299Y1 Y Rsch Opportunity Prg
 	L0101 B. Chang
 		TBA
@@ -6144,10 +5682,6 @@ EEB319H1 S Population Ecology
 	L0101 Cyr/Krkosck
 		Monday RW 110  13:00-14:00
 		Wednesday RW 110  13:00-14:00
-	P0101  
-		Thursday   09:00-10:00
-	P0201  
-		Thursday   13:00-14:00
 EEB321H1 F Community Ecology
 	L0101 Krkosek/Alofs
 		Monday RW 110  13:00-14:00
@@ -6157,12 +5691,6 @@ EEB322H1 F Behav & Behav Ecol
 	L0101 Tba/Raboy
 		Monday RW 110  11:00-12:00
 		Wednesday RW 110  11:00-12:00
-	P0101  
-		Tuesday RW 208  14:00-15:00
-	P0201  
-		Wednesday RW 208  14:00-15:00
-	P0301  
-		Thursday RW 208  13:00-14:00
 EEB323H1 F Evol Genetics
 	L0101 Cutter/Bartkowska
 		Tuesday RW 110  11:00-12:00
@@ -6213,10 +5741,6 @@ EEB365H1 S Topics Biodiv Con Bio
 	L0101 Fortin/Darling
 		Wednesday RW 143  09:00-10:00
 		Friday RW 143  09:00-10:00
-	P0101  
-		Wednesday   10:00-11:00
-	P0201  
-		Friday   10:00-11:00
 EEB375H1 F Organisms & Enviro
 	L5101 L. Duquette
 		Wednesday ES B149  18:00-19:00
@@ -6304,32 +5828,10 @@ ENV234H1 F Env Biol: Ecosystems
 	L0101 Cyr/Eckenwalder/Bollmann
 		Monday MP 103  10:00-11:00
 		Wednesday MP 103  10:00-11:00
-	P0101  
-		Tuesday RW 122  09:00-10:00
-	P0102  
-		Tuesday RW 122  09:00-10:00
-	P0201  
-		Tuesday RW 122  13:00-14:00
-	P0202  
-		Tuesday RW 122  13:00-14:00
-	P0301  
-		Wednesday RW 122  13:00-14:00
-	P0302  
-		Wednesday RW 122  13:00-14:00
-	P0401  
-		Thursday RW 122  09:00-10:00
-	P0402  
-		Thursday RW 122  09:00-10:00
 ENV334H1 S Env Biology Applied
 	L0101 H. Cyr
 		Monday RW 117  15:00-16:00
 		Thursday RW 117  15:00-16:00
-	P0101  
-		Tuesday RW 122  09:00-10:00
-	P0201  
-		Tuesday RW 122  14:00-15:00
-	P0301  
-		Wednesday RW 122  14:00-15:00
 JMB170Y1 Y Bio, Models, Math
 	L0101 J. Repka
 		Monday SS 2117  13:00-14:00
@@ -8748,26 +8250,6 @@ GGR100H1 F Intro Phy Geography
 	L0101 S. Finkelstein
 		Tuesday MC 102  14:00-15:00
 		Thursday MC 102  14:00-15:00
-	P0101  
-		Monday PG 101  11:00-12:00
-	P0201  
-		Monday PG 101  12:00-13:00
-	P0301  
-		Monday PG 101  13:00-14:00
-	P0401  
-		Monday PG 101  14:00-15:00
-	P0601  
-		Monday PG 101  16:00-17:00
-	P0701  
-		Wednesday PG 101  12:00-13:00
-	P0801  
-		Wednesday PG 101  13:00-14:00
-	P0901  
-		Wednesday PG 101  14:00-15:00
-	P1101  
-		Thursday PG 101  11:00-12:00
-	P1201  
-		Thursday PG 101  12:00-13:00
 GGR101H1 S Ancient Civ Environ
 	L0101 A. Davis
 		Thursday ES 1050  14:00-15:00
@@ -8840,16 +8322,6 @@ GGR124H1 S Urbanization
 GGR201H1 S Geomorphology
 	L5101 J. Desloges
 		Tuesday SS 2106  18:00-19:00
-	P0101  
-		Wednesday PG 101  10:00-11:00
-	P0201  
-		Wednesday PG 101  11:00-12:00
-	P0301  
-		Wednesday PG 101  16:00-17:00
-	P5101  
-		Tuesday PG 101  20:00-21:00
-	P5201  
-		Wednesday PG 101  17:00-18:00
 GGR203H1 F Intro Climatology
 	L0101 L. Harvey
 		Monday SS 2127  10:00-11:00
@@ -8931,18 +8403,6 @@ GGR271H1 S Social Research Methods
 GGR272H1 F Geo Info & Mapping I
 	L0101 D. Boyes
 		Tuesday SS 2135  10:00-11:00
-	P0101  
-		Tuesday SS 620  12:00-13:00
-	P0201  
-		Wednesday SS 620  10:00-11:00
-	P0301  
-		Wednesday SS 620  15:00-16:00
-	P0401  
-		Thursday SS 620  10:00-11:00
-	P0501  
-		Thursday SS 620  13:00-14:00
-	P0601  
-		Thursday SS 620  15:00-16:00
 GGR273H1 S Ggr Info & Map II
 	L0101 D. Boyes
 		Tuesday SS 1069  10:00-11:00
@@ -8950,14 +8410,6 @@ GGR273H1 S Ggr Info & Map II
 		TBA
 	L2001 D. Boyes
 		TBA
-	P0101  
-		Tuesday SS 620  12:00-13:00
-	P0201  
-		Tuesday SS 620  14:00-15:00
-	P0301  
-		Wednesday SS 620  13:00-14:00
-	P0401  
-		Wednesday SS 620  15:00-16:00
 GGR299Y1 Y Rsch Opportunity Prg
 	L0101 R. Difrancesco
 		TBA
@@ -9002,10 +8454,6 @@ GGR336H1 S Urban Hist Geography
 GGR337H1 S Enviro Remote Sensing
 	L0101 J. Chen
 		Monday WI 524  10:00-11:00
-	P0101  
-		Thursday SS 620  15:00-16:00
-	P5101  
-		Tuesday SS 620  17:00-18:00
 GGR339H1 S Urb Ggr, Pln & Pol Pr
 	L5101 S. Chung
 		Tuesday SS 1070  18:00-19:00
@@ -9034,10 +8482,6 @@ GGR361H1 F Understand Urb Lands
 GGR373H1 F Adv Geog Info Syst
 	L0101 Tba
 		Tuesday RW 142  13:00-14:00
-	P0101  
-		Tuesday SS 620  15:00-16:00
-	P0201  
-		Wednesday SS 620  13:00-14:00
 GGR374H1 F Imp Change Urban/Reg
 	L0101 R. Difracesco
 		Wednesday SS 2105  11:00-12:00
@@ -10216,14 +9660,6 @@ HMB201H1 F Intro Genes Biotech
 HMB202H1 S Intro Health Disease
 	L0101 Ju/Fabian
 		Monday MS 2158  10:00-11:00
-	P0101  
-		Monday   12:00-13:00
-	P0201  
-		Monday   13:00-14:00
-	P0301  
-		Monday   14:00-15:00
-	P0401  
-		Monday   15:00-16:00
 HMB203H1 F Intro Global Health
 	L0101 M. Papaconstantinou
 		Thursday WI 1016  14:00-15:00
@@ -10262,10 +9698,6 @@ HMB301H1 F Intro Biotech
 HMB302H1 F Vert Histo Histpath
 	L0101 R. Wilson Jr
 		Wednesday HS 610  10:00-11:00
-	P0101  
-		Thursday   14:00-15:00
-	P0201  
-		Friday   09:00-10:00
 HMB303H1 F Health Human Rights
 	L0101 P. Hamel
 		Friday WI 1016  09:00-10:00
@@ -12509,10 +11941,6 @@ MGY378H1 S Microbiology II
 MGY379Y1 Y Microbiology Lab
 	L0101 M. Brown
 		Monday MS 4279  11:00-12:00
-	P0101  
-		Tuesday   09:00-10:00
-	P0201  
-		Tuesday   09:00-10:00
 MGY420H1 F Regul Gene Express
 	L0101 J. Greenblatt
 		Monday MS 3171  11:00-12:00
@@ -13361,10 +12789,6 @@ PHC331H1 S Bioequivalence
 PHC340Y1 Y PCTS Lab
 	L0101 Dubins/Lee
 		Monday PB 255  10:00-11:00
-	P0101  
-		Thursday   11:00-12:00
-	P0201  
-		Friday   09:00-10:00
 PHC420H1 S App Med Chem Phmclgy
 	L0101 J. Uetrecht
 		Tuesday PB B150  13:00-14:00
@@ -13940,25 +13364,13 @@ ENV237H1 S Phy of Change Env A
 	L0101 K. Walker
 		Tuesday MP 118  12:00-13:00
 		Thursday MP 118  12:00-13:00
-	P0101  
-		Tuesday MP 125 10:00-11:00
-	P0201  
-		Tuesday MP 125 14:00-15:00
 ENV238H1 S Phy of Change Env B
 	L0101 K. Walker
 		Tuesday MP 118  12:00-13:00
 		Thursday MP 118  12:00-13:00
-	P0101  
-		Tuesday MP 125 10:00-11:00
-	P0201  
-		Tuesday MP 125 14:00-15:00
 JOP210H1 S Holography
 	L0101 E. Istrate
 		Monday MP 118  13:00-14:00
-	P0101  
-		Tuesday MP 257 09:00-10:00
-	P0201  
-		Thursday MP 257 12:00-13:00
 JPH441H1 S Sciences in Society
 	L5101 B. Orr
 		Tuesday MP 134  17:00-18:00
@@ -13989,56 +13401,14 @@ PHY131H1 F Intro Physics I
 	L5101 Meyertholen/Harlow/Savaria
 		Monday MP 102  17:00-18:00
 		Wednesday MP 102  17:00-18:00
-	P0103  
-		Monday MP 125  13:00-14:00
-	P0105  
-		Monday MP 125  15:00-16:00
-	P0201  
-		Tuesday MP 125  10:00-11:00
-	P0203  
-		Tuesday MP 125  13:00-14:00
-	P0205  
-		Tuesday MP 125  15:00-16:00
-	P0303  
-		Wednesday MP 125  13:00-14:00
-	P0305  
-		Wednesday MP 125  15:00-16:00
-	P0401  
-		Thursday MP 125  10:00-11:00
-	P0402  
-		Thursday MP 125  12:00-13:00
-	P0404  
-		Thursday MP 125  14:00-15:00
-	P0501  
-		Friday MP 125  10:00-11:00
-	P0502  
-		Friday MP 125  12:00-13:00
-	P0504  
-		Friday MP 125  14:00-15:00
-	P5302  
-		Wednesday MP 125  18:00-19:00
 PHY131H1 S Intro Physics I
 	L0101 N. Krasnopolskaia
 		Monday MP 102  11:00-12:00
 		Wednesday MP 102  11:00-12:00
-	P0402  
-		Thursday MP 125  12:00-13:00
-	P0404  
-		Thursday MP 125  14:00-15:00
-	P0501  
-		Friday MP 125  10:00-11:00
-	P0502  
-		Friday MP 125  12:00-13:00
-	P0504  
-		Friday MP 125  14:00-15:00
 PHY132H1 F Intro Physics II
 	L0101 Krasnopolskaia/Das
 		Monday MP 137  11:00-12:00
 		Wednesday MP 137  11:00-12:00
-	P0501  
-		Friday MP 125  10:00-11:00
-	P0504  
-		Friday MP 125  14:00-15:00
 PHY132H1 S Intro Physics II
 	L0101 Meyertholen/Harlow/Savaria
 		Monday CH   11:00-12:00
@@ -14046,47 +13416,11 @@ PHY132H1 S Intro Physics II
 	L5101 Meyertholen/Harlow/Savaria
 		Monday MP 102  17:00-18:00
 		Wednesday MP 102  17:00-18:00
-	P0103  
-		Monday MP 125  13:00-14:00
-	P0105  
-		Monday MP 125  15:00-16:00
-	None  
-		Monday MP 125 10:00-11:00
-	P0202  
-		Tuesday MP 125  12:00-13:00
-	P0205  
-		Tuesday MP 125  15:00-16:00
-	P0303  
-		Wednesday MP 125  13:00-14:00
-	P0305  
-		Wednesday MP 125  15:00-16:00
-	P0402  
-		Thursday MP 125  12:00-13:00
-	P0404  
-		Thursday MP 125  14:00-15:00
-	P0501  
-		Friday MP 125  10:00-11:00
-	P0502  
-		Friday MP 125  12:00-13:00
-	P5302  
-		Wednesday MP 125  18:00-19:00
 PHY151H1 F Found Physics I
 	L0101 James/Harlow
 		Monday MP 202  11:00-12:00
 		Wednesday MP 202  11:00-12:00
 		Friday MP 202  11:00-12:00
-	P0102  
-		Monday MP 126 14:00-15:00
-	P0311  
-		Wednesday MP 126 14:00-15:00
-	P0312  
-		Wednesday MP 126 14:00-15:00
-	P0411  
-		Thursday MP 126 13:00-14:00
-	P0412  
-		Thursday MP 126 13:00-14:00
-	P0511  
-		Friday MP 126 13:00-14:00
 	T0101 Tuesday MP 125 10:00-11:00
 	T0201 Monday MP 125 16:00-17:00
 	T0301 Tuesday MP 125 14:00-15:00
@@ -14098,16 +13432,6 @@ PHY152H1 S Found Physics II
 		Monday MP 202  11:00-12:00
 		Wednesday MP 202  11:00-12:00
 		Friday MP 202  11:00-12:00
-	P0102  
-		Monday MP 126 14:00-15:00
-	P0311  
-		Wednesday MP 126 14:00-15:00
-	P0312  
-		Wednesday MP 126 14:00-15:00
-	P0411  
-		Thursday MP 126 13:00-14:00
-	P0412  
-		Thursday MP 126 13:00-14:00
 	T0101 Monday LM 155  13:00-14:00
 	T0201 Monday SS 1086  16:00-17:00
 	T0301 Tuesday MP 118  14:00-15:00
@@ -14378,12 +13702,6 @@ PSL201Y1 Y Physiology
 PSL280H1 F Intro Marine Mammal
 	L0101 Bolz/Wittnich
 		Thursday MC 102  12:00-13:00
-	P0101   
-		Tuesday MS Teaching Labs 10:00-11:00
-	P0201  
-		Tuesday MS Teaching Labs 11:00-12:00
-	P0301  
-		Tuesday MS Teaching Labs 12:00-13:00
 PSL299Y1 Y Rsch Opportunity Prg
 	L0101 P. Brubaker
 		TBA

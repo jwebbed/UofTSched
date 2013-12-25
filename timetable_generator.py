@@ -1,5 +1,6 @@
 from classlib import *
 from WebCrawler import WebCrawler
+import random
 
 def generateTimeTables(classes):
     ##Do Something
@@ -13,9 +14,10 @@ def _allPossibleTimeTables(classes, conflict = False):
     
     l = []
     for i in classes:
-        l += i.getTimeSlots()
+        l += i.getSections()
     
     timetables = [_makeTimeTable(subset) for subset in _listSubsetter(l)]
+    
     
     if (not conflict):
         for timetable in timetables:
@@ -24,13 +26,14 @@ def _allPossibleTimeTables(classes, conflict = False):
     
     return timetables
 
-def _makeTimeTable(slots):
-    ''' (List of TimeSlot) -> TimeTable
+def _makeTimeTable(sections):
+    ''' (List of Sections) -> TimeTable
     Takes a list of TimeSlot objects and returns a TimeTable object '''
     
     tt = TimeTable()
-    for slot in slots:
-        tt.addTimeSlot(slot)
+    for section in sections:
+        for slot in section.getTimeSlots():
+            tt.addTimeSlot(slot)
     return tt
 
 def _listSubsetter(l):
@@ -49,4 +52,14 @@ def _listSubsetter(l):
             
     return new
 
-courses = WebCrawler()
+def _tester():
+    courses = WebCrawler()
+    for course in courses:
+        if (course.TBA()):
+            courses.remove(course)
+    i = 0
+    l = random.sample(courses, 5)        
+    tables = _allPossibleTimeTables(l)
+    
+if __name__ == '__main__':
+    _tester()
