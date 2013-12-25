@@ -203,8 +203,23 @@ class TimeTable:
         
         s = ''
         for i in this.classes:
-            s += str(i)
+            s += str(i) + '\n'
         return s
+    
+    def conflict(this):
+        ''' (TimeTable) -> bool
+        Returns true iff any of the time slots in this timeable are
+        conflicting'''
         
-        
+        if (len(this.time_slots) < 2):
+            return False
+        else:
+            for i in range(len(this.time_slots) - 1):
+                for slot in this.time_slots[i + 1:]:
+                    if (slot == this.time_slots[i]):
+                        return True
+        return False
+                    
+                    
+                    
 TBA = TimeSlot(None)
