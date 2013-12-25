@@ -117,7 +117,7 @@ class TimeSlot:
         
         if (args[0] == None):
             this.TBA = True
-            this.ID = b'TBA'
+            this.ID = 'TBA'
         else:
             this.day = args[0]
             this.loc = args[1]
@@ -127,18 +127,27 @@ class TimeSlot:
             this.code = args[4]
             this.course = args[5]
             this.__hash__()
-        
+     
+    def time(this):
+        ''' (TimeSlot) -> str
+        Returns a string representing the time the class ocours at '''
+    
+        hour_start = this.start // 4
+        minute_start = (this.start % 4) * 15
+        hour_end = this.end // 4
+        minute_end = (this.end % 4) * 15
+        return "%02d:%02d-%02d:%02d" % (hour_start, minute_start,
+                                                    hour_end, minute_end)        
+
     def __str__(this):
         if (this.TBA):
             return "TBA"
         else:
-            hour_start = this.start // 4
-            minute_start = (this.start % 4) * 15
-            hour_end = this.end // 4
-            minute_end = (this.end % 4) * 15
-            time = "%02d:%02d-%02d:%02d" % (hour_start, minute_start,
-                                                        hour_end, minute_end)
-            return _days[this.day] + ' ' + this.loc + ' ' + time
+            
+            return _days[this.day] + ' ' + this.loc + ' ' + this.time()
+       
+    def __repr__(this):
+        return this.__str__
         
     def __hash__(this):
         ''' Used to make a unique ID for this TimeSlot '''
@@ -149,5 +158,19 @@ class TimeSlot:
         s += this.code
         b = str.encode(s)
         this.ID = hashlib.sha256(b).hexdigest()
+        
+    def __eq__(this, other):
+        ''' (TimeSlot, TimeSlot) -> bool
+        Returns True iff both time slots overlap for at least some ammount of 
+        time, use the equals method if you want to know if they cover the exact
+        same ammount of time '''
+        
+        return not (other.start >= this.end or other.end <= this.start)
+    
+    def equals(this, other):
+        
+        return (other.start == this.start and other.end == this.end)
+            
+        
         
 TBA = TimeSlot(None)
