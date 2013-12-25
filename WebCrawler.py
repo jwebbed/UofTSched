@@ -30,15 +30,19 @@ def WebCrawler():
                 if (len(col) < 8): #Ignores canceled classes
                     continue
                 if (re.match('[A-Z]{3}[0-9]{3}(H|Y)1', str(col[0].string))):
+                    if (len(class_list) > 0):
+                        print(class_list[-1].verbose())
                     code = str(col[0].string)
                     sem = str(col[1].string)
                     if (sem == 'None'):
-                        if (re.match('"S', str(col[1]))):
+                        if (re.match('S', str(col[1]))):
                             sem = 'S'
-                        elif (re.match('"F', str(col[1]))):
-                            sem = 'F'
-                        elif (re.match('"Y', str(col[1]))):
+                        elif (re.match('Y', str(col[1]))):
                             sem = 'Y'
+                        elif (re.match('F', str(col[1]))):
+                            sem = 'F'
+                        else:
+                            raise Exception("Unable to determine Semester")
                     name = str(col[2].string)
                     if (not re.match("[a-zA-Z\s]*", name)):
                         name = _extractBroken(name)     
@@ -143,9 +147,6 @@ def WebCrawler():
             
     return class_list
    
-    
-
-
 
 def _generateTimeSlot(time, loc):
     if (time != "TBA"):
@@ -211,6 +212,8 @@ def _generateTimeSlot(time, loc):
             if (end < 9):
                 end += 12
             end *= 4
+        else:
+            raise Exception("Unable to read time format")
         
         if (start and end):
             return [TimeSlot(t, loc, start, end) for t in l]
@@ -230,13 +233,16 @@ def _extractBrokenLoc(string):
     elif (re.search("[A-Za-z ]*", string)):
         match = re.search("[A-Za-z ]*", string)
         return match.group(0)
+    else:
+        raise Exception("Unable to extract broken Location Format")
     
-        
-
 def _extractBrokenTime(string):
     match = re.search("(M|T|W|R|F)+[0-9]+:*[0-9]*-*[0-9]*:*[0-9]*", 
                       string)
-    return match.group(0)
+    if (match):
+        return match.group(0)
+    else:
+        raise Exception("Unable to extract broken Location Format")
 
 def _extractBrokenCode(string):
     match = re.search("(L|T|P)[0-9]{4}", string)
@@ -272,12 +278,12 @@ def _multipleRooms(string):
     
 if __name__ == "__main__":
     x = WebCrawler()
-    s = ''
-    for i in x:
-        s += i.verbose() + '\n'
-    f = open('downloaded_data.txt', 'w')
-    f.write(s)
-    f.close()
+    #s = ''
+    #for i in x:
+        #s += i.verbose() + '\n'
+    #f = open('downloaded_data.txt', 'w')
+    #f.write(s)
+    #f.close()
     
     
     
