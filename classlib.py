@@ -12,7 +12,7 @@ class Class:
         this.sem = sem
         this.name = name
         this.lectures = []
-        this.practicals - []
+        this.practicals = []
         this.tutorials = []
         
     def __str__(this):
@@ -25,7 +25,7 @@ class Class:
         this.lectures.append(lec)
         
     def addPra(this, pra):
-        this.praticals.append(pra)
+        this.practicals.append(pra)
     
     def addTut(this, tut):
         this.tutorials.append(tut)
@@ -53,7 +53,23 @@ class Class:
     def getTutorialTimeSlots(this):
         
         return [slot.getTimeSlots for slot in this.tutorials]
-       
+    
+    def getTimeSlots(this):
+        
+        l = []
+        lec = this.getLectureTimeSlots()
+        pra = this.getPracticalTimeSlots()
+        tut = this.getTutorialTimeSlots()
+        
+        if (not lec.isEmpty()):
+            l.append(lec)
+        if (not pra.isEmpty()):
+            l.append(pra)
+        if (not tut.isEmpty()):
+            l.append(tut)  
+            
+        return l
+        
 class LectureSection:
     
     def __init__(this, code, instruct):
