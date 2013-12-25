@@ -34,11 +34,11 @@ def WebCrawler():
                     code = str(col[0].string)
                     sem = str(col[1].string)
                     if (sem == 'None'):
-                        if (re.match('S', str(col[1]))):
+                        if (re.search('S', str(col[1]))):
                             sem = 'S'
-                        elif (re.match('Y', str(col[1]))):
+                        elif (re.search('Y', str(col[1]))):
                             sem = 'Y'
-                        elif (re.match('F', str(col[1]))):
+                        elif (re.search('F', str(col[1]))):
                             sem = 'F'
                         else:
                             raise NoSemesterException(code, str(col[1]))                             
@@ -145,7 +145,7 @@ def WebCrawler():
         print("Course Code: " + e.course)
         print(e.code)
         
-    finally:
+    except:
         exc_type, exc_value, exc_traceback = sys.exc_info()
         traceback.print_exception(exc_type, exc_value, exc_traceback)
             
@@ -282,11 +282,13 @@ def _multipleRooms(string):
 
 ## Exceptions ##
 
-class NoSemesterException(Exception):
-    
+class CrawlerError(Exception):
     def __init__(this, course, code):
         this.course = course
-        this.code = code
+        this.code = code    
+    
+class NoSemesterException(CrawlerError):
+    pass
     
 if __name__ == "__main__":
     x = WebCrawler()

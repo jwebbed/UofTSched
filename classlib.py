@@ -103,8 +103,12 @@ class TimeSlot:
         if (this.TBA):
             return "TBA"
         else:
-            return (_days[this.day] + ' ' + this.loc + ' ' + str(this.start) 
-                    + '-' + str(this.end))
-
+            hour_start = this.start // 4
+            minute_start = (this.start % 4) * 15
+            hour_end = this.end // 4
+            minute_end = (this.end % 4) * 15
+            time = "%02d:%02d-%02d:%02d" % (hour_start, minute_start,
+                                                        hour_end, minute_end)
+            return _days[this.day] + ' ' + this.loc + ' ' + time
         
 TBA = TimeSlot(None)
