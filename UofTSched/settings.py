@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'uoftsched'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'UofTSched.urls'
+ROOT_URLCONF = 'uoftsched.urls'
 
-WSGI_APPLICATION = 'UofTSched.wsgi.application'
+WSGI_APPLICATION = 'uoftsched.wsgi.application'
 
 
 # Database

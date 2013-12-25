@@ -6,60 +6,60 @@ _days = {'M' : 'Monday', 'T' : 'Tuesday', 'W': 'Wednesday', 'R' : 'Thursday',
 
 class Class:
     
-    def __init__(this, code, sem, name):
+    def __init__(self, code, sem, name):
         
-        this.code = code
-        this.sem = sem
-        this.name = name
-        this.lectures = []
-        this.practicals = []
-        this.tutorials = []
+        self.code = code
+        self.sem = sem
+        self.name = name
+        self.lectures = []
+        self.practicals = []
+        self.tutorials = []
         
-    def __str__(this):
-        return this.code + " " + this.sem + " " + this.name
+    def __str__(self):
+        return self.code + " " + self.sem + " " + self.name
     
-    def __repr__(this):
-        return this.__str__()
+    def __repr__(self):
+        return self.__str__()
     
-    def addLec(this, lec):
-        this.lectures.append(lec)
+    def addLec(self, lec):
+        self.lectures.append(lec)
         
-    def addPra(this, pra):
-        this.practicals.append(pra)
+    def addPra(self, pra):
+        self.practicals.append(pra)
     
-    def addTut(this, tut):
-        this.tutorials.append(tut)
+    def addTut(self, tut):
+        self.tutorials.append(tut)
     
-    def verbose(this):
-        s = str(this)
-        for l in this.lectures:
+    def verbose(self):
+        s = str(self)
+        for l in self.lectures:
             s += "\n\t" + str(l)
-        for t in this.tutorials:
+        for t in self.tutorials:
             s += "\n\t" + str(t)
         return s
     
-    def getLectureTimeSlots(this):
+    def getLectureTimeSlots(self):
         slots = []
-        for slot in this.lectures:
+        for slot in self.lectures:
             slots += slot.getTimeSlots()
         return slots
     
-    def getPracticalTimeSlots(this):
+    def getPracticalTimeSlots(self):
             slots = []
-            for slot in this.practicals:
+            for slot in self.practicals:
                 slots += slot.getTimeSlots()
             return slots    
     
-    def getTutorialTimeSlots(this):
+    def getTutorialTimeSlots(self):
         
-        return [slot.getTimeSlots for slot in this.tutorials]
+        return [slot.getTimeSlots for slot in self.tutorials]
     
-    def getTimeSlots(this):
+    def getTimeSlots(self):
         
         l = []
-        lec = this.getLectureTimeSlots()
-        pra = this.getPracticalTimeSlots()
-        tut = this.getTutorialTimeSlots()
+        lec = self.getLectureTimeSlots()
+        pra = self.getPracticalTimeSlots()
+        tut = self.getTutorialTimeSlots()
         
         if (len(lec) != 0):
             l.append(lec)
@@ -70,193 +70,193 @@ class Class:
             
         return l
     
-    def getSections(this):
+    def getSections(self):
             
         l = []
-        if (len(this.lectures) != 0):
-            l.append(this.lectures)
-        if (len(this.practicals) != 0):
-            l.append(this.practicals)
-        if (len(this.tutorials) != 0):
+        if (len(self.lectures) != 0):
+            l.append(self.lectures)
+        if (len(self.practicals) != 0):
+            l.append(self.practicals)
+        if (len(self.tutorials) != 0):
             l.append(tut)  
             
         return l 
         
-    def TBA(this):
+    def TBA(self):
         ''' Returns true if anything in this class is TBA '''
-        for l in this.getTimeSlots():
+        for l in self.getTimeSlots():
             if (TBA in l):
                 return True
         return False
         
 class LectureSection:
     
-    def __init__(this, code, instruct):
+    def __init__(self, code, instruct):
         
-        this.code = code
-        this.instruct = instruct
-        this.time = []
+        self.code = code
+        self.instruct = instruct
+        self.time = []
                 
 
-    def __str__(this):
-        s = this.code + " " + this.instruct
-        if (this.time != []):
-            for i in this.time:
+    def __str__(self):
+        s = self.code + " " + self.instruct
+        if (self.time != []):
+            for i in self.time:
                 s+= "\n\t\t" + str(i)
         
         return s
     
-    def addTime(this, timeslot):
-        this.time.append(timeslot)
+    def addTime(self, timeslot):
+        self.time.append(timeslot)
         
-    def getTimeSlots(this):
+    def getTimeSlots(self):
         
-        return this.time
+        return self.time
         
 class PracticalSection:
     
-    def __init__(this, code, instruct, alt = False):
+    def __init__(self, code, instruct, alt = False):
         
-        this.code = code
-        this.instruct = instruct
-        this.time = []
-        this.alternating = alt
+        self.code = code
+        self.instruct = instruct
+        self.time = []
+        self.alternating = alt
                 
 
-    def __str__(this):
-        s = this.code + " " + this.instruct
-        if (this.time != []):
-            for i in this.time:
+    def __str__(self):
+        s = self.code + " " + self.instruct
+        if (self.time != []):
+            for i in self.time:
                 s+= "\n\t\t" + str(i)
         
         return s
     
-    def addTime(this, timeslot):
-        this.time.append(timeslot) 
+    def addTime(self, timeslot):
+        self.time.append(timeslot)
         
-    def getTimeSlots(this):
+    def getTimeSlots(self):
         
-        return this.time
+        return self.time
 
 class TutorialSection:
     
-    def __init__(this, code, timeslot):
+    def __init__(self, code, timeslot):
         
-        this.code = code
-        this.timeslot = timeslot
+        self.code = code
+        self.timeslot = timeslot
         
         
-    def __str__(this):
+    def __str__(self):
 
-        return this.code + " " + str(this.timeslot)
+        return self.code + " " + str(self.timeslot)
     
-    def getTimeSlots(this):
+    def getTimeSlots(self):
         
-        return this.timeslot
+        return self.timeslot
 
 class TimeSlot:
     
-    def __init__(this, *args):
-        ''' Input should be day, location, start time and end time in this 
+    def __init__(self, *args):
+        ''' Input should be day, location, start time and end time in this
         order, otherwise only input should be None indicating TBA'''
         
         if (args[0] == None):
-            this.TBA = True
-            this.ID = 'TBA'
+            self.TBA = True
+            self.ID = b'TBA'
         else:
-            this.day = args[0]
-            this.loc = args[1]
-            this.start = args[2]
-            this.end = args[3]
-            this.code = args[4]
-            this.course = args[5]
-            this.TBA = False
-            this.__hash__()
+            self.day = args[0]
+            self.loc = args[1]
+            self.start = args[2]
+            self.end = args[3]
+            self.TBA = False
+            self.code = args[4]
+            self.course = args[5]
+            self.__hash__()
      
-    def time(this):
+    def time(self):
         ''' (TimeSlot) -> str
         Returns a string representing the time the class ocours at '''
     
-        hour_start = this.start // 4
-        minute_start = (this.start % 4) * 15
-        hour_end = this.end // 4
-        minute_end = (this.end % 4) * 15
+        hour_start = self.start // 4
+        minute_start = (self.start % 4) * 15
+        hour_end = self.end // 4
+        minute_end = (self.end % 4) * 15
         return "%02d:%02d-%02d:%02d" % (hour_start, minute_start,
                                                     hour_end, minute_end)        
 
-    def __str__(this):
-        if (this.TBA):
+    def __str__(self):
+        if (self.TBA):
             return "TBA"
         else:
             
-            return _days[this.day] + ' ' + this.loc + ' ' + this.time()
+            return _days[self.day] + ' ' + self.loc + ' ' + self.time()
        
-    def __repr__(this):
-        return this.__str__()
+    def __repr__(self):
+        return self.__str__()
         
-    def __hash__(this):
+    def __hash__(self):
         ''' Used to make a unique ID for this TimeSlot '''
         
-        s = this.course.code
-        s += str(this.day)
-        s += str(this.start)
-        s += str(this.end)
-        s += this.code
+        s = self.course.code
+        s += str(self.day)
+        s += str(self.start)
+        s += str(self.end)
+        s += self.code
         b = str.encode(s)
-        this.ID = hashlib.sha256(b).hexdigest()
+        self.ID = hashlib.sha256(b).hexdigest()
         
-    def __eq__(this, other):
+    def __eq__(self, other):
         ''' (TimeSlot, TimeSlot) -> bool
         Returns True iff both time slots overlap for at least some ammount of 
         time, use the equals method if you want to know if they cover the exact
         same ammount of time '''
         
-        if (type(other) != type(this) or this is TBA or other is TBA or 
-            (this.sem == 'F' and other.sem == 'S')):
+        if (type(other) != type(self) or self is TBA or other is TBA or
+            (self.sem == 'F' and other.sem == 'S')):
             return False
         else:
-            return ((not (other.end <= this.start or other.start >= this.end))
-                    and this.day == other.day)
+            return ((not (other.end <= self.start or other.start >= self.end))
+                    and self.day == other.day)
     
-    def equals(this, other):
+    def equals(self, other):
         ''' (TimeSlot, TimeSlot) -> bool
         Returns true iff both time slots cover the exact same time '''
         
-        return (other.start == this.start and other.end == this.end)
+        return (other.start == self.start and other.end == self.end)
             
 class TimeTable:
     
-    def __init__(this):
+    def __init__(self):
         
-        this.time_slots = []
-        this.classes = []
+        self.time_slots = []
+        self.classes = []
         
-    def addTimeSlot(this, slot):
+    def addTimeSlot(self, slot):
         
-        this.time_slots.append(slot)
-        if (not (slot.course in this.classes)):
-            this.classes.append(slot.course)
+        self.time_slots.append(slot)
+        if (not (slot.course in self.classes)):
+            self.classes.append(slot.course)
             
-    def classList(this):
+    def classList(self):
         ''' (TimeTable) -> str
         Returns a string of a list of classes in this time table '''
         
         s = ''
-        for i in this.classes:
+        for i in self.classes:
             s += str(i) + '\n'
         return s
     
-    def conflict(this):
+    def conflict(self):
         ''' (TimeTable) -> bool
         Returns true iff any of the time slots in this timeable are
         conflicting'''
         
-        if (len(this.time_slots) < 2):
+        if (len(self.time_slots) < 2):
             return False
         else:
-            for i in range(len(this.time_slots) - 1):
-                for slot in this.time_slots[i + 1:]:
-                    if (slot == this.time_slots[i]):
+            for i in range(len(self.time_slots) - 1):
+                for slot in self.time_slots[i + 1:]:
+                    if (slot == self.time_slots[i]):
                         return True
         return False
                     
