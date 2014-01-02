@@ -126,4 +126,11 @@ class Period:
         assert type(time) == Time
         assert isInstance(day, Day)
         
+        this.time = time
+        this.day = day
         
+    def __str__(this):
+        ''' (Period) - str
+        '''
+        
+        return str(this.day) + ' ' + str(this.time)
