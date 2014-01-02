@@ -57,8 +57,8 @@ def _tester():
     for course in courses:
         if (course.TBA()):
             courses.remove(course)
-    i = 0
-    l = random.sample(courses, 5)        
+    for i in range(40):
+        l = random.sample(courses, 10)        
     tables = _allPossibleTimeTables(l)
     
 if __name__ == '__main__':

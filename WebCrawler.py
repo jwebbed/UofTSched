@@ -295,14 +295,14 @@ class CrawlerError(Exception):
 class NoSemesterException(CrawlerError):
     pass
     
-if __name__ == "__main__":
-    x = WebCrawler()
-    s = ''
-    for i in x:
-        s += i.verbose() + '\n'
-    f = open('downloaded_data.txt', 'w')
-    f.write(s)
-    f.close()
+#if __name__ == "__main__":
+    #x = WebCrawler()
+    #s = ''
+    #for i in x:
+        #s += i.verbose() + '\n'
+    #f = open('downloaded_data.txt', 'w')
+    #f.write(s)
+    #f.close()
     
     
     
