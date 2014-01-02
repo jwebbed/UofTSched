@@ -5,7 +5,7 @@ _days = {'M' : Monday(), 'T' : Tuesday(), 'W': Wednesday(), 'R' : Thursday(),
          'F' : Friday(), 'S' : Saturday(), 'N' : Sunday()}
 
 
-class Course:
+class Course: ## NYI
     
     def __init__(self, **kwargs):
         '''
@@ -17,7 +17,7 @@ class Course:
         pass
     
     
-class TimeSlot:
+class TimeSlot: ## NYI
     
     def __init__(this, **kwargs):
         '''

@@ -64,8 +64,7 @@ class Monday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Monday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Monday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
 
 class Tuesday(Day): 
@@ -73,8 +72,7 @@ class Tuesday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Tuesday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Tuesday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
 
 class Wednesday(Day):
@@ -82,8 +80,7 @@ class Wednesday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Wednesday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Wednesday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
     
 class Thursday(Day): 
@@ -91,8 +88,7 @@ class Thursday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Thursday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Thursday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
     
 class Friday(Day): 
@@ -100,8 +96,7 @@ class Friday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Friday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Friday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
     
 class Saturday(Day): 
@@ -109,8 +104,7 @@ class Saturday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Saturday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Saturday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
     
 class Sunday(Day): 
@@ -118,7 +112,18 @@ class Sunday(Day):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Sunday, cls).__new__(
-                                    cls, *args, **kwargs)
+            cls._instance = super(Sunday, cls).__new__(cls, *args, **kwargs)
         return cls._instance
+
+class Period:
     
+    def __init__(this, time, day):
+        ''' (Period, Time, Day) -> None
+        Instantiates a Period object with given Time and Day as specified by
+        the given Time and Day objects
+        '''
+        
+        assert type(time) == Time
+        assert isInstance(day, Day)
+        
+        
