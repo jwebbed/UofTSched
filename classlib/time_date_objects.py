@@ -130,7 +130,6 @@ class Period:
         this.day = day
         
     def __str__(this):
-        ''' (Period) - str
-        '''
+        ''' (Period) -> str '''
         
         return str(this.day) + ' ' + str(this.time)
